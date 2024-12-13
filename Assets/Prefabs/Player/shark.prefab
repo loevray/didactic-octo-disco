@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: shark
       objectReference: {fileID: 0}
+    - target: {fileID: -5609321221556402741, guid: cf978fa1737e25b4e95d88ed17977d02, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: -3729061605404192647, guid: cf978fa1737e25b4e95d88ed17977d02, type: 3}
       propertyPath: m_DirtyAABB
       value: 0

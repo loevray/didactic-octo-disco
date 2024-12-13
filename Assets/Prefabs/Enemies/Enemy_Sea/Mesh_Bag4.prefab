@@ -80,6 +80,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mesh_Bag4
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 38596c652c3134a41ab7364769e641e4, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 4129356788942975847, guid: 38596c652c3134a41ab7364769e641e4, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
