@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
     private int exp = 0;
     
     public event Action<int> OnLevelUp; //레벨업 이벤트
+    public event Action<int> OnExpIncreased; //경험치 증가 이벤트
+    
     public event Action<int> OnHpChanged;  // HP 변경 이벤트
     public event Action OnPlayerDead;     // 플레이어 사망 이벤트
 
@@ -24,11 +26,23 @@ public class Player : MonoBehaviour
     {
         OnHpChanged += UpdateHpUI;
         OnPlayerDead += HandlePlayerDeath;
+        OnLevelUp += HandlePlayerLevelup;
+        OnExpIncreased += HandlePlayerExpIncreased;
     }
     void Update()
     {
         Move();
         
+    }
+    
+
+    
+    private void HandlePlayerExpIncreased(int currentExp){
+        Debug.Log($"경험치 획득! 현재 경험치 : {currentExp} 남은 경험치: {GetExpThresholdForLevel(level) - currentExp}");
+    }
+    
+    private void HandlePlayerLevelup(int currentLevel){
+        Debug.Log($"레베루 업! 현재 경험치: {exp} 레벨 : {currentLevel} 필요량:{GetExpThresholdForLevel(currentLevel)}");
     }
     
      private void HandlePlayerDeath()
@@ -55,12 +69,13 @@ public class Player : MonoBehaviour
     public void IncreaseExp(int quantity)
     {
         exp += quantity;
+        OnExpIncreased?.Invoke(exp);
         CheckLevelUp();
     }
     
     private int GetExpThresholdForLevel(int currentLevel)
     {
-        return 10 + (currentLevel * 4); //기본필요경험치 10에 레벨당 4 증가
+        return 10 + ((currentLevel-1) * 4); //기본필요경험치 10에 레벨당 4 증가
     }
     
     private void CheckLevelUp()
