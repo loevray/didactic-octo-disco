@@ -8,14 +8,84 @@ public class Player : MonoBehaviour
     private float moveSpeed = 20f;
     [SerializeField]
     private float moveStopThreshold = 15f;
+    [SerializeField]
+    private int healthPoint = 10;
+    [SerializeField]
+    private int level = 1;
+    
+    [SerializeField]
+    private int exp = 0;
+    
+    public event Action<int> OnLevelUp; //레벨업 이벤트
+    public event Action<int> OnHpChanged;  // HP 변경 이벤트
+    public event Action OnPlayerDead;     // 플레이어 사망 이벤트
 
     void Start()
     {
-        
+        OnHpChanged += UpdateHpUI;
+        OnPlayerDead += HandlePlayerDeath;
     }
     void Update()
     {
-            Move();
+        Move();
+        
+    }
+    
+     private void HandlePlayerDeath()
+    {
+        Debug.Log("플레이어 사망~!");
+    }
+    
+    private void UpdateHpUI(int currentHp)
+    {
+        Debug.Log($"플레이어 HP: {currentHp}");
+    }
+    
+    public void TakeDamage(int damage){
+        healthPoint -= damage;
+        
+        OnHpChanged?.Invoke(healthPoint);
+        
+        if(healthPoint<=0){
+            healthPoint = 0;
+            OnPlayerDead?.Invoke();
+        }
+    }
+    
+    public void IncreaseExp(int quantity)
+    {
+        exp += quantity;
+        CheckLevelUp();
+    }
+    
+    private int GetExpThresholdForLevel(int currentLevel)
+    {
+        return 10 + (currentLevel * 4); //기본필요경험치 10에 레벨당 4 증가
+    }
+    
+    private void CheckLevelUp()
+    {
+        while (exp >= GetExpThresholdForLevel(level))
+        {
+            exp -= GetExpThresholdForLevel(level);
+            LevelUp();
+        }
+    }
+    
+    private void LevelUp()
+    {
+        level++;
+        IncreaseHealth(3); //레벨당 체력 몇 증가할지 고민
+        OnLevelUp?.Invoke(level); // 외부에서 넘겨준 레벨업 이벤트 핸들러 호출. ex) 능력 카드 선택창...
+    }
+    
+    void IncreaseHealth(int quantity){
+        healthPoint += quantity;
+    }
+
+    public void DecreaseHealth(int quantity){
+        //테스트를 위해 public화 해둠. 버튼하나 삽입하여 플레이어 체력 감소시킬 것임
+        healthPoint -= quantity;
     }
     
     void Move()
