@@ -13,8 +13,12 @@ public class Player : MonoBehaviour
     {
         
     }
+    void Update()
+    {
+            Move();
+    }
     
-     void Move()
+    void Move()
     {
         /* 
         Input.GetAxis = 가속과 감속을 이용한 부드러운 입력변화
@@ -35,11 +39,5 @@ public class Player : MonoBehaviour
         {
             transform.position += moveTo;
         }
-    }
-    
-
-    void Update()
-    {
-            Move();
     }
 }
