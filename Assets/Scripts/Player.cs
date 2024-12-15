@@ -4,21 +4,17 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     
-    [SerializeField]
-    private float moveSpeed = 20f;
-    [SerializeField]
-    private float moveStopThreshold = 15f;
-    [SerializeField]
-    private int healthPoint = 10;
-    [SerializeField]
-    private int level = 1;
+    [SerializeField] private float moveSpeed = 20f;
+    [SerializeField] private float moveStopThreshold = 15f;
+    [SerializeField] private int currentHealthPoint = 10;
+    [SerializeField] private int baseMaxHealthPoint = 10;
+    [SerializeField] private int level = 1;
+    [SerializeField]private int exp = 0;
     
-    [SerializeField]
-    private int exp = 0;
+    private int currentMaxHealthPoint;
     
     public event Action<int> OnLevelUp; //레벨업 이벤트
     public event Action<int> OnExpIncreased; //경험치 증가 이벤트
-    
     public event Action<int> OnHpChanged;  // HP 변경 이벤트
     public event Action OnPlayerDead;     // 플레이어 사망 이벤트
 
@@ -35,6 +31,14 @@ public class Player : MonoBehaviour
         
     }
     
+    void OnDestroy()
+    {
+        //플레이어 파괴시 메모리 누수 방지를 위해 이벤트 핸들러 제거
+        OnHpChanged -= UpdateHpUI;
+        OnPlayerDead -= HandlePlayerDeath;
+        OnLevelUp -= HandlePlayerLevelup;
+        OnExpIncreased -= HandlePlayerExpIncreased;
+    }
 
     
     private void HandlePlayerExpIncreased(int currentExp){
@@ -56,12 +60,12 @@ public class Player : MonoBehaviour
     }
     
     public void TakeDamage(int damage){
-        healthPoint -= damage;
+        currentHealthPoint -= damage;
         
-        OnHpChanged?.Invoke(healthPoint);
+        OnHpChanged?.Invoke(currentHealthPoint);
         
-        if(healthPoint<=0){
-            healthPoint = 0;
+        if(currentHealthPoint<=0){
+            currentHealthPoint = 0;
             OnPlayerDead?.Invoke();
         }
     }
@@ -75,7 +79,7 @@ public class Player : MonoBehaviour
     
     private int GetExpThresholdForLevel(int currentLevel)
     {
-        return 10 + ((currentLevel-1) * 4); //기본필요경험치 10에 레벨당 4 증가
+        return 10 + ((currentLevel-1) * 4); //레벨당 필요경험치 수정 필요
     }
     
     private void CheckLevelUp()
@@ -90,18 +94,31 @@ public class Player : MonoBehaviour
     private void LevelUp()
     {
         level++;
-        IncreaseHealth(3); //레벨당 체력 몇 증가할지 고민
+        
+        int prevMaxHealthPoint = currentMaxHealthPoint;
+        currentMaxHealthPoint = GetMaxHpForLevel(level);
+        
+        int healthPointIncrease = currentMaxHealthPoint - prevMaxHealthPoint;
+        IncreaseHealth(healthPointIncrease); 
+        
         OnLevelUp?.Invoke(level); // 외부에서 넘겨준 레벨업 이벤트 핸들러 호출. ex) 능력 카드 선택창...
     }
     
     void IncreaseHealth(int quantity){
-        healthPoint += quantity;
+        int tempNewHealthPoint = currentHealthPoint + quantity;
+        
+        currentHealthPoint = Mathf.Clamp(tempNewHealthPoint, 0, currentMaxHealthPoint);
     }
 
     public void DecreaseHealth(int quantity){
-        //테스트를 위해 public화 해둠. 버튼하나 삽입하여 플레이어 체력 감소시킬 것임
-        healthPoint -= quantity;
+        currentHealthPoint -= quantity;
     }
+    
+    private int GetMaxHpForLevel(int currentLevel)
+    {
+        return baseMaxHealthPoint + ((currentLevel - 1) * 4); ////레벨당 체력 몇 증가할지 고민
+    }
+
     
     void Move()
     {
