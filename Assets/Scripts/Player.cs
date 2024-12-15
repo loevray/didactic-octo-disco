@@ -24,6 +24,9 @@ public class Player : MonoBehaviour
         OnPlayerDead += HandlePlayerDeath;
         OnLevelUp += HandlePlayerLevelup;
         OnExpIncreased += HandlePlayerExpIncreased;
+        
+        currentMaxHealthPoint = GetMaxHpForLevel(level);
+        currentHealthPoint = currentMaxHealthPoint;
     }
     void Update()
     {
@@ -94,7 +97,7 @@ public class Player : MonoBehaviour
     private void LevelUp()
     {
         level++;
-        
+
         int prevMaxHealthPoint = currentMaxHealthPoint;
         currentMaxHealthPoint = GetMaxHpForLevel(level);
         
