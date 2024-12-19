@@ -65,7 +65,7 @@ public class MapSpawner : MonoBehaviour
         GameObject selecteBossMap = bossMapPrefab[UnityEngine.Random.Range(0, bossMapPrefab.Length)];
         GameObject bossMapSpawn = Instantiate(selecteBossMap, spawnPosition, Quaternion.identity);
 
-        OnBossMapSpawned.Invoke();
+        OnBossMapSpawned?.Invoke();
         isBossMapSpawned = true;
         
     }
