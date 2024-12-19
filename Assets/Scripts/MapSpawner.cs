@@ -17,6 +17,7 @@ public class MapSpawner : MonoBehaviour
     //추가사항
     private bool isBossMapSpawned = false; // 보스맵 상태 관리
     public event Action OnMapSpawned; //EnemySpawner를 작동시키기 위한 액션
+    public event Action OnBossMapSpawned;
     [SerializeField] private float bossMapThreshold = 4; //보스맵 카운트(수정필요)
 
     void Start()
@@ -64,6 +65,7 @@ public class MapSpawner : MonoBehaviour
         GameObject selecteBossMap = bossMapPrefab[UnityEngine.Random.Range(0, bossMapPrefab.Length)];
         GameObject bossMapSpawn = Instantiate(selecteBossMap, spawnPosition, Quaternion.identity);
 
+        OnBossMapSpawned.Invoke();
         isBossMapSpawned = true;
         
     }
