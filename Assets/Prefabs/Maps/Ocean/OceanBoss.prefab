@@ -244,7 +244,7 @@ Transform:
   m_GameObject: {fileID: 942503251625881016}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -18.699997, y: 4.12, z: -9.320007}
+  m_LocalPosition: {x: -18.699997, y: 1.12, z: -9.320007}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -441,9 +441,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1221198018935370795}
+  - component: {fileID: 5099900541842581225}
   m_Layer: 0
   m_Name: OceanBoss
-  m_TagString: Map
+  m_TagString: BossMap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -457,7 +458,7 @@ Transform:
   m_GameObject: {fileID: 3743737909779176324}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 145, y: 0, z: 200}
+  m_LocalPosition: {x: -266.22137, y: 1.9000001, z: 126.89471}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -477,6 +478,19 @@ Transform:
   - {fileID: 6631554880446670190}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5099900541842581225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3743737909779176324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f8378c826b82b645b7b1f812aad565f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 15
 --- !u!1 &4554638923492475230
 GameObject:
   m_ObjectHideFlags: 0
@@ -807,7 +821,7 @@ Transform:
   m_GameObject: {fileID: 5970571946750122512}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.19080693, z: -0, w: 0.9816276}
-  m_LocalPosition: {x: 21.79, y: 4.12, z: -10.529999}
+  m_LocalPosition: {x: 21.79, y: 0.93, z: -10.529999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
