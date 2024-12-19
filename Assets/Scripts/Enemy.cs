@@ -4,11 +4,11 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private float enemyMoveSpeed = 15f;
-    [SerializeField] private int enemyHealthPoint = 10;
+    [SerializeField] private int enemyHealthPoint = 1;
     [SerializeField] private float enemyDeleteThreshold = -30f;
 
-    public event Action<int> enemyHpChange;  // HP 변경 이벤트
-    public event Action enemyDead;     // 적 사망 이벤트
+    //public event Action<int> enemyHpChange;  // HP 변경 이벤트
+    //public event Action enemyDead;     // 적 사망 이벤트
 
     void Update()
     {
@@ -25,6 +25,20 @@ public class Enemy : MonoBehaviour
     {
         if (transform.position.z < enemyDeleteThreshold)
         {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("적에서 충돌 이벤트 발생");
+        if (other.gameObject.tag == "Player")
+        {
+            Debug.Log("적에서 플레이어와 충돌 이벤트 발생");
+            Player player = other.gameObject.GetComponent<Player>();
+            Debug.Log(enemyHealthPoint);
+            player.TakeDamage(enemyHealthPoint);
+            
             Destroy(gameObject);
         }
     }

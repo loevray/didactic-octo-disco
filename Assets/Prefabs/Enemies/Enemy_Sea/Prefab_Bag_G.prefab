@@ -67,8 +67,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97bdba9e6f959fa4a82cc9e69b0819ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
-  deleteThreshold: -5
+  enemyMoveSpeed: 15
+  enemyHealthPoint: 1
+  enemyDeleteThreshold: -30
 --- !u!1 &2194189979952743037
 GameObject:
   m_ObjectHideFlags: 0
