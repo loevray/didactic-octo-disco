@@ -7,11 +7,7 @@ public class Boss : MonoBehaviour
 
     private bool isBossStoped = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -21,11 +17,7 @@ public class Boss : MonoBehaviour
     void MoveBossEnemy()
     {
         if (gameObject.tag == "BossEnemy" && transform.position.z <= 11)
-        {
-            if (!isBossStoped)
-            {
-                isBossStoped = true;
-            }
+        { 
             return;
         }
         transform.position += Vector3.back * BossEnemyMoveSpeed * Time.deltaTime;

@@ -5,7 +5,6 @@ public class MapTile : MonoBehaviour
 {
 
     [SerializeField] private float moveSpeed = 15f;
-    private bool isMapStoped = false;
     private float deleteThresholdPodition = -40f;
     static public event Action OnMapDeleted; //맵 삭제시 이벤트
     
@@ -24,10 +23,6 @@ public class MapTile : MonoBehaviour
     {
         if (gameObject.tag == "BossMap" && transform.position.z <= 0)
         {
-            if (!isMapStoped)
-            {
-                isMapStoped = true;
-            }
             return;
         }
         transform.position += Vector3.back * moveSpeed * Time.deltaTime;
