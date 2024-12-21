@@ -53,7 +53,7 @@ public class EnemySpawner : MonoBehaviour
 
     public void SpawnBossEnemy(int index)
     {
-        Vector3 spawnPos = new Vector3(0, 1, 51f);
+        Vector3 spawnPos = new Vector3(0, 1f, 51f);
         Quaternion spawnRotation = Quaternion.Euler(0, 90, 0); // Y축으로 90도 회전
         Instantiate(bossEnemies[index], spawnPos, spawnRotation);
     }

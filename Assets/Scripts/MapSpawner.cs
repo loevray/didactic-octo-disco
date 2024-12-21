@@ -11,14 +11,14 @@ public class MapSpawner : MonoBehaviour
     [SerializeField] private GameObject[] mapPrefabs;
     [SerializeField] private GameObject[] bossMapPrefab;
    
-    public float mapDeleteCount = 0; //EnemySpawner에서 사용하기 위해 public으로 교체
+    public float mapDeleteCount = 0f; //EnemySpawner에서 사용하기 위해 public으로 교체
     private Vector3 spawnPosition = new Vector3(0,0,40f);
 
     //추가사항
     private bool isBossMapSpawned = false; // 보스맵 상태 관리
     public event Action OnMapSpawned; //EnemySpawner를 작동시키기 위한 액션
     public event Action OnBossMapSpawned;
-    [SerializeField] private float bossMapThreshold = 4; //보스맵 카운트(수정필요)
+    [SerializeField] private float bossMapThreshold = 4f; //보스맵 카운트(수정필요)
 
     void Start()
     {

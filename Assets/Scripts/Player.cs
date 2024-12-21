@@ -5,7 +5,7 @@ public class Player : MonoBehaviour
 {
     
     [SerializeField] private float moveSpeed = 20f;
-    [SerializeField] private float moveStopThreshold = 15f;
+    [SerializeField] private float moveStopThreshold = 9f;
     [SerializeField] private int currentHealthPoint = 10;
     [SerializeField] private int baseMaxHealthPoint = 10;
     [SerializeField] private int level = 1;
