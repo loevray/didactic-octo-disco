@@ -740,7 +740,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f2c84b0c526b37c45806428bb221b269, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.01
+      value: 0.09
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f2c84b0c526b37c45806428bb221b269, type: 3}
       propertyPath: m_LocalPosition.z
@@ -821,7 +821,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootTransform: {fileID: 732485519}
-  weaponPrefab1: {fileID: 7414387441159276871, guid: 65e12df46ddb163469eb3a923480ee65, type: 3}
+  weaponPrefab1: {fileID: 4876598968942705848, guid: 93569686695b74142a35fc20e5e96c1e, type: 3}
+  weaponPrefab2: {fileID: 1863831632526029974, guid: 5a9016071556a84408bec99bccf16fc2, type: 3}
 --- !u!4 &1532461131
 Transform:
   m_ObjectHideFlags: 0

@@ -36,32 +36,9 @@ public class Enemy : MonoBehaviour
 
         CollidWithPlayer(other);
 
-        //Debug.Log("적에서 충돌 이벤트 발생");
-        //if (other.gameObject.tag == "Player")
-        //{
-        //    Debug.Log("적에서 플레이어와 충돌 이벤트 발생");
-        //    Player player = other.gameObject.GetComponent<Player>();
-        //    Debug.Log(enemyHealthPoint);
-        //    player.TakeDamage(enemyHealthPoint);
-
-        //    Destroy(gameObject);
-        //}
     }
 
-    //무기와 충돌 시 체력깍고 0이하가되면 경험치오브 생성 및 파괴
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.gameObject.tag == "Weapon")
-    //    {
-    //        Weapon weapon = other.gameObject.GetComponent<Weapon>();
-    //        enemyHealthPoint -= weapon.damage;
-    //        if (enemyHealthPoint < 0)
-    //        {
-    //            Instantiate(Exp, transform.position, Quaternion.identity);
-    //            Destroy(gameObject);
-    //        }
-    //    }
-    //}
+
 
     void CollidWithWeapon(Collider other)
     {

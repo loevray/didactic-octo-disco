@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyMoveSpeed: 15
-  enemyHealthPoint: 1
+  enemyHealthPoint: 5
   enemyDeleteThreshold: -30
   exp: {fileID: 8310827175246301871, guid: f176963dcb8e8a149ae6939e4458db40, type: 3}
 --- !u!1 &3093382570917618847
