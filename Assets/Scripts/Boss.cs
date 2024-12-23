@@ -30,11 +30,12 @@ public class Boss : MonoBehaviour
         {
             Weapon weapon = other.gameObject.GetComponent<Weapon>();
             bossEnemyHealthPoint -= weapon.weaponDamage;
-            if (bossEnemyHealthPoint < 0)
+            if (bossEnemyHealthPoint <= 0)
             {
                 Instantiate(exp, transform.position, Quaternion.identity); //추후에 더 큰 경험치, 보상등으로 교체
                 Destroy(gameObject);
             }
+            Destroy(other.gameObject);
         }
     }
 

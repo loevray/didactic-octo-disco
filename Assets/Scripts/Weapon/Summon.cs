@@ -1,9 +1,7 @@
 using UnityEngine;
 
-public class Weapon1 : Weapon
+public class Summon : MonoBehaviour
 {
-    //지속적인 발사체
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -11,8 +9,14 @@ public class Weapon1 : Weapon
     }
 
     // Update is called once per frame
-    protected override void Update()
+    void Update()
     {
-        base.Update();
+        
     }
+
+    public void SummonSelf(Vector3 position)
+    {
+        //Instantiate(gameObject, position, Quaternion.identity);
+    }
+
 }

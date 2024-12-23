@@ -105,9 +105,9 @@ GameObject:
   - component: {fileID: 2163650406743293048}
   - component: {fileID: 315198573034041859}
   - component: {fileID: 2258029821876326028}
-  - component: {fileID: 8421709115341043538}
+  - component: {fileID: 1478984537538917456}
   m_Layer: 0
-  m_Name: Herring_Animations
+  m_Name: DefaultWeapon
   m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -122,7 +122,7 @@ Transform:
   m_GameObject: {fileID: 4876598968942705848}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.580104, y: 0, z: -15.403404}
+  m_LocalPosition: {x: -4.5727053, y: 0, z: -14.1782875}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -202,7 +202,7 @@ CapsuleCollider:
   m_Height: 1.2192281
   m_Direction: 2
   m_Center: {x: 0, y: 0.2, z: -0.1}
---- !u!114 &8421709115341043538
+--- !u!114 &1478984537538917456
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -211,13 +211,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 4876598968942705848}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce02656da7ee9d54099dc9d48c488029, type: 3}
+  m_Script: {fileID: 11500000, guid: d93264ef520fda04ab90cf2af8c26838, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponDamage: 1
+  weaponDamage: 2
   weaponSpeed: 5
-  weaponCoolTime: 0.3
+  weaponCoolTime: 1
   weaponRange: 3
+  damageCoefficient: 0
+  speedCoefficient: 0
+  CoolTimeCoefficien: 0
+  RangeCoefficient: 0
 --- !u!1 &4884319847218931150
 GameObject:
   m_ObjectHideFlags: 0
