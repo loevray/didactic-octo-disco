@@ -22,8 +22,9 @@ public class Boss : MonoBehaviour
         //보스 죽었을시 이벤트 실행
         
         GameManager gameManager = GameManager.Instance;
-        
         gameManager.NextStage();
+        
+        Debug.Log("보스 죽음" + gameManager.CurrentStage);
         OnBossDestroyed?.Invoke();
     }
 

@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour {
         get { return currentStage; }
     }
     public event Action OnNextStage;
-    private int maxStage = 5;
+    private int maxStage = 2;
     
     public List<Card> cardPool;  // 카드 풀
     private float newWeaponChance = 0.2f;  // 새로운 무기 획득 확률
