@@ -8,6 +8,8 @@ TagManager:
   - Map
   - BossMap
   - BossEnemy
+  - Exp
+  - Weapon
   layers:
   - Default
   - TransparentFX

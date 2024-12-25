@@ -7,8 +7,8 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float[] enemySpawnLocationX = { -8, -4, 0, 4, 8 };
     [SerializeField] private float[] enemySpawnLocationZ = { 25, 30, 35, 40, 45, 50, 55 };
 
-    public MapSpawner mapSpawner; // MapSpawner ÂüÁ¶
-    //mapSpawner¿¡ ÀÖ´Â delete count°¡ ÀÏÁ¤ ¼öÄ¡¿¡ µµ´ŞÇÏ¸é ÀûÀÇ »ı»ê¼ö¸¦ ´Ã¸°´Ù.(ºí·° 10°³°¡ »ç¶óÁö¸é Àû+1)
+    public MapSpawner mapSpawner; 
+    //mapSpawnerì— ìˆëŠ” delete countê°€ ì¼ì • ìˆ˜ì¹˜ì— ë„ë‹¬í•˜ë©´ ì ì˜ ìƒì‚°ìˆ˜ë¥¼ ëŠ˜ë¦°ë‹¤.(ë¸”ëŸ­ 10ê°œê°€ ì‚¬ë¼ì§€ë©´ ì +1)
 
     void OnEnable()
     {
@@ -28,7 +28,7 @@ public class EnemySpawner : MonoBehaviour
     }
     void HandleMapSpawned()
     {
-        //½Ã¸®¾ó¶óÀÌÁî º¯¼ö¸¦ ¸¸µé¾î¼­ µô¸®Æ®¸Ê Ä«¿îÆ®°¡ 1, 2°¡ µÉ¶§¸¶´Ù ÀûÀÇ ¼ö Áõ°¡
+        //ì‹œë¦¬ì–¼ë¼ì´ì¦ˆ ë³€ìˆ˜ë¥¼ ë§Œë“¤ì–´ì„œ ë”œë¦¬íŠ¸ë§µ ì¹´ìš´íŠ¸ê°€ 1, 2ê°€ ë ë•Œë§ˆë‹¤ ì ì˜ ìˆ˜ ì¦ê°€
         int enemyIndex = Random.Range(0, enemies.Length);
         int xIndex = Random.Range(0, enemySpawnLocationX.Length);
         int zIndex = Random.Range(0, enemySpawnLocationZ.Length);
@@ -40,21 +40,18 @@ public class EnemySpawner : MonoBehaviour
     }
     void HandleBossMapSpawned()
     {
-        int bossIndex = Random.Range(0, bossEnemies.Length); // ·£´ı º¸½º ¼±ÅÃ
+        int bossIndex = Random.Range(0, bossEnemies.Length); 
         SpawnBossEnemy(bossIndex);
     }
-
-
     public void SpawnEnemy(float posX, float posZ, int index)
     {
         Vector3 spawnPos = new Vector3(posX, 1f, posZ);
         Instantiate(enemies[index], spawnPos, Quaternion.identity);
     }
-
     public void SpawnBossEnemy(int index)
     {
-        Vector3 spawnPos = new Vector3(0, 1, 51f);
-        Quaternion spawnRotation = Quaternion.Euler(0, 90, 0); // YÃàÀ¸·Î 90µµ È¸Àü
+        Vector3 spawnPos = new Vector3(0, 1f, 51f);
+        Quaternion spawnRotation = Quaternion.Euler(0, 90, 0);
         Instantiate(bossEnemies[index], spawnPos, spawnRotation);
     }
 }

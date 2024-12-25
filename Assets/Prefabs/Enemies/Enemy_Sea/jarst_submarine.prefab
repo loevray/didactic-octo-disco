@@ -128,6 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BossEnemyMoveSpeed: 15
   bossEnemyHealthPoint: 100
+  exp: {fileID: 7862596833194655944, guid: c84371a620ea6a6449ad5dbcb350dea4, type: 3}
 --- !u!1 &3853717211454415462
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,11 +5,11 @@ public class Player : MonoBehaviour
 {
     
     [SerializeField] private float moveSpeed = 20f;
-    [SerializeField] private float moveStopThreshold = 15f;
+    [SerializeField] private float moveStopThreshold = 9f;
     [SerializeField] private int currentHealthPoint = 10;
     [SerializeField] private int baseMaxHealthPoint = 10;
     [SerializeField] private int level = 1;
-    [SerializeField]private int exp = 0;
+    [SerializeField] private int exp = 0;
     
     private int currentMaxHealthPoint;
     
@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     public event Action<int> OnExpIncreased; //경험치 증가 이벤트
     public event Action<int> OnHpChanged;  // HP 변경 이벤트
     public event Action OnPlayerDead;     // 플레이어 사망 이벤트
+    private WeaponManager weaponManager;
 
     void Start()
     {
@@ -27,11 +28,14 @@ public class Player : MonoBehaviour
         
         currentMaxHealthPoint = GetMaxHpForLevel(level);
         currentHealthPoint = currentMaxHealthPoint;
+        weaponManager = GetComponentInChildren<WeaponManager>();
+
+
     }
     void Update()
     {
         Move();
-        
+        weaponManager.FireOwnWeapon();
     }
     
     void OnDestroy()
