@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -5,7 +6,7 @@ public class Weapon : MonoBehaviour
 {
     [SerializeField] public int weaponDamage = 1;
     [SerializeField] public float weaponSpeed = 5f;
-    [SerializeField] public float weaponCoolTime= 1f;
+    [SerializeField] public float weaponCoolTime = 1f;
     [SerializeField] public float weaponRange = 3f;
 
     public int damageCoefficient = 0;
@@ -15,7 +16,7 @@ public class Weapon : MonoBehaviour
     protected Vector3 weaponPosition;
 
     //private Dictionary<string, float> stats;
-    protected float weaponlastShotTime = -900000;
+    protected DateTime weaponLastShotTime;
 
     public enum AbilityType
     {
@@ -24,8 +25,16 @@ public class Weapon : MonoBehaviour
         CoolTime,
         Range
     }
+
+    private void Awake()
+    {
+        weaponLastShotTime = DateTime.MinValue;
+    }
+
     protected virtual void Start()
     {
+        // weaponLastShotTime ì´ˆê¸°í™”ëŠ” Awakeì—ì„œë§Œ ìˆ˜í–‰
+        // weaponLastShotTime = DateTime.MinValue;
         //stats = new Dictionary<string, float>
         //{
         //    {"weaponDamage", weaponDamage },
@@ -34,22 +43,23 @@ public class Weapon : MonoBehaviour
         //    {"weaponRange", weaponRange },
         //};
     }
-    
-    public virtual void Generate(Vector3 position)// ¾îÅÃÀÌ¶ó´Â ÀÌ¸§ÀÌ ¾î»öÇÔ
+
+    public virtual void Generate(Vector3 position) // ì–´íƒì´ë¼ëŠ” ì´ë¦„ì´ ì–´ìƒ‰í•¨
     {
-        if (Time.time - weaponlastShotTime >= weaponCoolTime) 
+        if ((DateTime.Now - weaponLastShotTime).TotalSeconds >= weaponCoolTime)
         {
-            Vector3 weaponPosition = Instantiate(gameObject, position, Quaternion.identity).transform.position;
-            weaponlastShotTime = Time.time;
+            Instantiate(gameObject, position, Quaternion.identity);
+            weaponLastShotTime = DateTime.Now;
         }
     }
-    private void Upgrade(string weaponType, AbilityType ablityType) //weaponTypeÀº ÅÂ±×·Î Ã³¸®
+
+    private void Upgrade(string weaponType, AbilityType ablityType) // weaponTypeì€ íƒœê·¸ë¡œ ì²˜ë¦¬
     {
-        if (weaponType != gameObject.tag) 
+        if (weaponType != gameObject.tag)
         {
             return;
         }
-        switch (ablityType) //¿À¹ö¶óÀÌµå
+        switch (ablityType) // ì˜¤ë²„ë¼ì´ë“œ
         {
             case AbilityType.Damage:
                 weaponDamage += damageCoefficient;

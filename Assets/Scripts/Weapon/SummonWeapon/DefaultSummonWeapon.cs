@@ -1,41 +1,49 @@
+using System;
 using UnityEngine;
-using static SummonManager;
 
 public class DefaultSummonWeapon : Weapon
 {
-
-    
-    [SerializeField] private Transform player; //«√∑π¿ÃæÓ¿« ¿ßƒ° ¬¸¡∂
+    private Transform player; // ÌîåÎ†àÏù¥Ïñ¥Ïùò ÏúÑÏπò Ï∞∏Ï°∞
     [SerializeField] private float followSpeed = 1f;
     [SerializeField] private float followDistance = 2f;
     public float projectileCoolTime = 1f;
-    public GameObject SummonsWeapon; // ∏‘π∞ «¡∏Æ∆’
+    public GameObject SummonsWeapon; // Î®πÎ¨º ÌîÑÎ¶¨Ìåπ
 
     protected override void Start()
     {
         base.Start();
-        weaponCoolTime = 10000;
+        weaponCoolTime = 2f;
+        FindPlayerPosition();
     }
+
     void Update()
     {
         FollowPlayer();
+        GenerateSummonsWeapon();
     }
-    void Move()
-    {
 
+    void FindPlayerPosition()
+    {
+        Player playerObject = FindFirstObjectByType<Player>();
+        player = playerObject.transform;
     }
+
     float DistanceWithPlayerX()
     {
         return player.position.x - transform.position.x;
     }
+
     void MoveTowardPlayer()
     {
         float distanceX = DistanceWithPlayerX();
         Vector3 direction = new Vector3(distanceX, 0, 0).normalized;
         transform.position += direction * followSpeed * Time.deltaTime;
     }
+
     void FollowPlayer()
     {
+        if (player == null) return;
+
         float distance = Mathf.Abs(DistanceWithPlayerX());
         if (distance > followDistance)
         {
@@ -43,32 +51,19 @@ public class DefaultSummonWeapon : Weapon
         }
     }
 
-    //(Time.time - weaponlastShotTime >= weaponCoolTime) 
-    public override void Generate(Vector3 position)//∫£¿ÃΩ∫ ¡¶≥ ∑π¿Ã∆Æ=ø¿¬°æÓ∞° º“»Øµ«¥¬ ¿ßƒ°, ªı∑Œ ¿ŒΩ∫≈œΩ√ø°¿Ã∆Æ = ∏‘π∞
+    public override void Generate(Vector3 position)
     {
         base.Generate(position);
-        GenerateSummonsWeapon();
+        //GenerateSummonsWeapon();
     }
 
-    //-900000
     void GenerateSummonsWeapon()
     {
-
-        if (Time.time - weaponlastShotTime >= projectileCoolTime) 
+        if ((DateTime.Now - weaponLastShotTime).TotalSeconds >= projectileCoolTime)
         {
-            Debug.Log(weaponPosition);
-            GameObject sex = Instantiate(SummonsWeapon, weaponPosition, Quaternion.identity);
-            weaponlastShotTime = Time.time;
+            GameObject instance = Instantiate(SummonsWeapon, transform.position, Quaternion.identity);
+            SummonsWeapon summonsWeaponScript = instance.GetComponent<SummonsWeapon>();
+            weaponLastShotTime = DateTime.Now;
         }
     }
-
-    //public void OnEnable()//º“»Øºˆ ƒ´µÂ »πµÊΩ√ ¿€µø
-    //{
-    //    SummonPet();
-    //}
-    //void SummonPet()
-    //{
-    //    Vector3 summonPosition = player.position + new Vector3(2, 0, 1);
-    //    Instantiate(gameObject, summonPosition, Quaternion.identity);
-    //}
 }
