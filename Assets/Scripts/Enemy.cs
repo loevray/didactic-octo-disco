@@ -31,10 +31,8 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("������ �浹 �̺�Ʈ �߻�");
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("������ �÷��̾�� �浹 �̺�Ʈ �߻�");
             Player player = other.gameObject.GetComponent<Player>();
             Debug.Log(enemyHealthPoint);
             player.TakeDamage(enemyHealthPoint);
@@ -43,7 +41,6 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    //����� �浹 �� ü�±�� 0���ϰ��Ǹ� ����ġ���� ���� �� �ı�
     //private void OnTriggerEnter(Collider other)
     //{
     //    if (other.gameObject.tag == "Weapon")
