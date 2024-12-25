@@ -3,11 +3,11 @@ using UnityEngine;
 
 public class DefaultSummonWeapon : Weapon
 {
-    private Transform player; // 플레이어의 위치 참조
+    private Transform player;
     [SerializeField] private float followSpeed = 1f;
     [SerializeField] private float followDistance = 2f;
     public float projectileCoolTime = 1f;
-    public GameObject SummonsWeapon; // 먹물 프리팹
+    public GameObject SummonsWeapon; // squidInkPrefab
 
     protected override void Start()
     {
@@ -54,7 +54,6 @@ public class DefaultSummonWeapon : Weapon
     public override void Generate(Vector3 position)
     {
         base.Generate(position);
-        //GenerateSummonsWeapon();
     }
 
     void GenerateSummonsWeapon()

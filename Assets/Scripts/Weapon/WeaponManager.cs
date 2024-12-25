@@ -4,23 +4,20 @@ using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
 {
-    //³ª´Â ±×³É ¹«±â¸¦ ºÒ·¯¿È(¹«±â¿¡ ´ëÇÑÁ¤º¸? ´Ù ¾Ë¾Æ¼­ °¡Á®¶ó)
 
-    //[SerializeField] private Transform shootTransform;
     [SerializeField] private GameObject[] weaponsList = new GameObject[3];
     [SerializeField] private GameObject[] ownWeapons = new GameObject[3];
-    //bool °¢ ¹«±â¿¡ ´ëÇÑ ÇöÀç ¼ÒÀ¯ T or F, ¾Æ´Ï¸é ÀÚ·á±¸Á¶ µ¹¸°´Ù.
     
-    public void FireOwnWeapon()// ÇÃ·¹ÀÌ¾î·Î ºÎÅÍ È£ÃâÀÌ ¿À¸é ¾Æ·¡ÀÖ´Â ³ğµéÀ» ´Ù ´©¸¥´Ù.
+    public void FireOwnWeapon()
     {
-        foreach (GameObject ownWeapon in ownWeapons) //°¢ ¹«±â¿¡ ´ëÇÑ ¹İº¹¹®, Ã³À½¿¡ ¼±¾ğÇÑ bool°ªÀ¸·Î ÇØ´ç ¹İº¹¹®¿¡ ÁøÀÔ ¿©ºÎ¸¦ °áÁ¤ÇÔ
+        foreach (GameObject ownWeapon in ownWeapons)
         {
             Weapon weapon = ownWeapon.GetComponent<Weapon>();
             weapon.Generate(transform.position);
-        }//¼ÒÈ¯¼ö¿¡¼­ ¿À¹ö¶óÀÌµå
+        }
     }
 
-    //»õ·Î¿î ¹«±â ¼±ÅÃ½Ã ¸®½ºÆ®¿¡ ³Ö´Â ¸Ş¼Òµå
+    //ìƒˆë¡œìš´ ë¬´ê¸° ì„ íƒì‹œ ë¦¬ìŠ¤íŠ¸ì— ë„£ëŠ” ë©”ì†Œë“œ
     public void EquimentWeapon(WeaponType weaponType)
     {
         GameObject newWeapon = weaponsList[(int)weaponType];
@@ -31,7 +28,7 @@ public class WeaponManager : MonoBehaviour
         List<WeaponType> availableWeapons = new List<WeaponType>();
         for (int i =1; i < 3; i++)
         {
-            if(ownWeapons[i] == null)//À¯´ÏÆ¼¸®½ºÆ® ºó°Ô nullÀÎÁöÈ®ÀÎ
+            if(ownWeapons[i] == null)
             {
                 availableWeapons.Add((WeaponType)(i));
             }

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -3316093961218892251}
   - component: {fileID: -2255147847332801714}
   m_Layer: 0
-  m_Name: Fuck
+  m_Name: SummonsWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

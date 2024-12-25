@@ -15,7 +15,6 @@ public class Weapon : MonoBehaviour
     public float rangeCoefficient = 0f;
     protected Vector3 weaponPosition;
 
-    //private Dictionary<string, float> stats;
     protected DateTime weaponLastShotTime;
 
     public enum AbilityType
@@ -44,7 +43,7 @@ public class Weapon : MonoBehaviour
         //};
     }
 
-    public virtual void Generate(Vector3 position) // 어택이라는 이름이 어색함
+    public virtual void Generate(Vector3 position)
     {
         if ((DateTime.Now - weaponLastShotTime).TotalSeconds >= weaponCoolTime)
         {
@@ -53,13 +52,13 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    private void Upgrade(string weaponType, AbilityType ablityType) // weaponType은 태그로 처리
+    private void Upgrade(string weaponType, AbilityType ablityType) 
     {
         if (weaponType != gameObject.tag)
         {
             return;
         }
-        switch (ablityType) // 오버라이드
+        switch (ablityType) 
         {
             case AbilityType.Damage:
                 weaponDamage += damageCoefficient;
