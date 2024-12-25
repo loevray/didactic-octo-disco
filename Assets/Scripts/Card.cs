@@ -30,10 +30,10 @@ public class Card {
         this.weaponAbilityType = weaponAbilityType;
     }
 
-  public override int GetHashCode()
-  {
-      return HashCode.Combine(cardType, weaponType, weaponAbilityType);
-  }
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(cardType, weaponType, weaponAbilityType);
+    }
     public override bool Equals(object obj)
     {
     if (obj is Card other)  {
