@@ -345,7 +345,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 194766490}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1130118628}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: OnCardSelected
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &194766490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -498,7 +510,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ability1
+  m_text: 'ability3
+
+    (get!)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -763,7 +777,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ability1
+  m_text: 'ability2
+
+    (get!)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -924,7 +940,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 897598011}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1130118628}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: OnCardSelected
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &897598011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -976,7 +1004,7 @@ GameObject:
   - component: {fileID: 931799529}
   - component: {fileID: 931799528}
   m_Layer: 5
-  m_Name: Button
+  m_Name: GetExpButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1209,7 +1237,7 @@ GameObject:
   - component: {fileID: 1148530038}
   - component: {fileID: 1148530037}
   m_Layer: 5
-  m_Name: Button
+  m_Name: AttackPlayerButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1411,7 +1439,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1324662004}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1130118628}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: OnCardSelected
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1324662004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1513,7 +1553,7 @@ GameObject:
   - component: {fileID: 1625562173}
   - component: {fileID: 1625562172}
   m_Layer: 5
-  m_Name: AttackPlayerButtonCanvas
+  m_Name: UICanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1661,7 +1701,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ability1
+  m_text: 'ability1
+
+    (get!)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1771,7 +1813,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.8784314}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1828,7 +1870,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4628737040791368073, guid: 62515b827d057df4295029cef3b71d3b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -79.4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4628737040791368073, guid: 62515b827d057df4295029cef3b71d3b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1836,7 +1878,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4628737040791368073, guid: 62515b827d057df4295029cef3b71d3b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4628737040791368073, guid: 62515b827d057df4295029cef3b71d3b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1907,7 +1949,7 @@ GameObject:
   - component: {fileID: 1717995933}
   - component: {fileID: 1717995932}
   m_Layer: 5
-  m_Name: GetExp
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2043,7 +2085,7 @@ GameObject:
   - component: {fileID: 1740522610}
   - component: {fileID: 1740522609}
   m_Layer: 5
-  m_Name: AttackPlayer
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -6,16 +6,21 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float enemyMoveSpeed = 15f;
     [SerializeField] private int enemyHealthPoint = 1;
     [SerializeField] private float enemyDeleteThreshold = -30f;
-    [SerializeField] private GameObject exp;
+
+    //public event Action<int> enemyHpChange;  
+    //public event Action enemyDead;    
+
     void Update()
     {
         MoveEnemy();
         deleteOutEnemy();
     }
+
     void MoveEnemy()
     {
         transform.position += Vector3.back * enemyMoveSpeed * Time.deltaTime;
     }
+
     void deleteOutEnemy()
     {
         if (transform.position.z < enemyDeleteThreshold)
@@ -23,42 +28,36 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
     private void OnTriggerEnter(Collider other)
     {
-        CollidWithWeapon(other);
-
-        CollidWithPlayer(other);
-
-    }
-    void CollidWithWeapon(Collider other)
-    {
-        if (other.gameObject.tag == "Weapon")
-        {
-            Weapon weapon = other.gameObject.GetComponent<Weapon>();
-            enemyHealthPoint -= weapon.weaponDamage;
-            if (enemyHealthPoint <= 0)
-            {
-                Debug.Log("Àû Ã¼·Â 0µÊ");
-                Vector3 expPosition = new Vector3(transform.position.x, 1.6f, transform.position.z);
-                Instantiate(exp, expPosition, Quaternion.identity);
-                Destroy(gameObject);
-            }
-            Destroy(other.gameObject);
-        }
-    }
-    void CollidWithPlayer(Collider other)
-    {
-        Debug.Log("Àû¿¡¼­ Ãæµ¹ ÀÌº¥Æ® ¹ß»ý");
+        Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½æµ¹ ï¿½Ìºï¿½Æ® ï¿½ß»ï¿½");
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("Àû¿¡¼­ ÇÃ·¹ÀÌ¾î¿Í Ãæµ¹ ÀÌº¥Æ® ¹ß»ý");
+            Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ï¿½ ï¿½æµ¹ ï¿½Ìºï¿½Æ® ï¿½ß»ï¿½");
             Player player = other.gameObject.GetComponent<Player>();
             Debug.Log(enemyHealthPoint);
             player.TakeDamage(enemyHealthPoint);
-
+            
             Destroy(gameObject);
         }
     }
+
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½æµ¹ ï¿½ï¿½ Ã¼ï¿½Â±ï¿½ï¿½ 0ï¿½ï¿½ï¿½Ï°ï¿½ï¿½Ç¸ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ä±ï¿½
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.tag == "Weapon")
+    //    {
+    //        Weapon weapon = other.gameObject.GetComponent<Weapon>();
+    //        enemyHealthPoint -= weapon.damage;
+    //        if (enemyHealthPoint < 0)
+    //        {
+    //            Instantiate(Exp, transform.position, Quaternion.identity);
+    //            Destroy(gameObject);
+    //        }
+    //    }
+    //}
+
 }
 
 

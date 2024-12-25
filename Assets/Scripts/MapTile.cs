@@ -6,10 +6,11 @@ public class MapTile : MonoBehaviour
 
     [SerializeField] private float moveSpeed = 15f;
     private float deleteThresholdPodition = -40f;
-    static public event Action OnMapDeleted; //¸Ê »èÁ¦½Ã ÀÌº¥Æ®
+    static public event Action OnMapDeleted; //ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ®
     
     void Start()
     {
+        
     }
 
     // Update is called once per frame
@@ -37,5 +38,5 @@ public class MapTile : MonoBehaviour
         }
     }
 
-    //ÀÌµ¿(º¸½º¸Ê½Ã ¸ØÃã), »èÁ¦(»èÁ¦µÈ Ä«¿îÆ® ¸Ê½ºÆ÷³Ê¿¡ Àü´Þ)
+    //ï¿½Ìµï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½ï¿½ï¿½ï¿½), ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½Æ® ï¿½Ê½ï¿½ï¿½ï¿½ï¿½Ê¿ï¿½ ï¿½ï¿½ï¿½ï¿½)
 }
