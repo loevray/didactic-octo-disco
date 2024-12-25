@@ -1,19 +1,37 @@
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public int currentStage = 1;
+    private int maxStage = 2;
+
+    public int CurrentStage
     {
-        
+        get { return currentStage; }
     }
 
-    // Update is called once per frame
-    void Update()
+    public event System.Action OnNextStage;
+
+    public void NextStage()
     {
-        
+        if (currentStage < maxStage)
+        {
+            currentStage++;
+            OnNextStage?.Invoke();
+        }
+        else
+        {
+            Debug.Log("게임 클리어!");
+        }
     }
 
-
-
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            CardManager.Instance.GenerateCardPool();
+            UIManager.Instance.InjectCardInfo();
+            UIManager.Instance.ShowCardSelectionUI(true);
+        }
+    }
 }

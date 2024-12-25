@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Boss : MonoBehaviour
@@ -6,12 +7,28 @@ public class Boss : MonoBehaviour
     [SerializeField] private int bossEnemyHealthPoint = 100;
     [SerializeField] private GameObject exp;
 
-    private bool isBossStoped = false;
-
+    public static event Action OnBossDestroyed;
+    
     void Update()
     {
         MoveBossEnemy();
+        
+        //testìš© ë³´ìŠ¤ íŒŒê´´ ì½”ë“œ
+        if (Input.GetKeyDown(KeyCode.Z)) {
+            Destroy(gameObject);
+        }
     }
+    
+    void OnDestroy() {
+        //ë³´ìŠ¤ ì£½ì—ˆì„ì‹œ ì´ë²¤íŠ¸ ì‹¤í–‰
+        
+        GameManager gameManager = GameManager.Instance;
+        gameManager.NextStage();
+        
+        Debug.Log("ë³´ìŠ¤ ì£½ìŒ" + gameManager.CurrentStage);
+        OnBossDestroyed?.Invoke();
+    }
+
     void MoveBossEnemy()
     {
         if (gameObject.tag == "BossEnemy" && transform.position.z <= 11)
@@ -20,18 +37,20 @@ public class Boss : MonoBehaviour
         }
         transform.position += Vector3.back * BossEnemyMoveSpeed * Time.deltaTime;
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Weapon")
         {
             Weapon weapon = other.gameObject.GetComponent<Weapon>();
             bossEnemyHealthPoint -= weapon.weaponDamage;
-            if (bossEnemyHealthPoint <= 0)
+            if (bossEnemyHealthPoint < 0)
             {
-                Instantiate(exp, transform.position, Quaternion.identity); //ÃßÈÄ¿¡ ´õ Å« °æÇèÄ¡, º¸»óµîÀ¸·Î ±³Ã¼
+                Instantiate(exp, transform.position, Quaternion.identity); 
                 Destroy(gameObject);
             }
             Destroy(other.gameObject);
         }
     }
+
 }
