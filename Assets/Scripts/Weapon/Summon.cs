@@ -2,7 +2,11 @@ using UnityEngine;
 
 public class Summon : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] private Transform player; //플레이어의 위치 참조
+    [SerializeField] private float followSpeed;
+    [SerializeField] private float followDistance = 2f;
+    //[SerializeField] 플레이어와 붙을 거리
+
     void Start()
     {
         
@@ -11,12 +15,26 @@ public class Summon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        FollowPlayer();
     }
 
-    public void SummonSelf(Vector3 position)
+    void Move()
     {
-        //Instantiate(gameObject, position, Quaternion.identity);
+
+    }
+
+    void FollowPlayer()
+    {
+        float distance = DistanceWithPlayer();
+        if (distance > followDistance)
+        {
+            //Move;
+        }
+    }
+    
+    float DistanceWithPlayer()
+    {
+        return Mathf.Abs(transform.position.z - player.position.z);
     }
 
 }

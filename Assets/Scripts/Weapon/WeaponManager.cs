@@ -16,8 +16,8 @@ public class WeaponManager : MonoBehaviour
         foreach (GameObject ownWeapon in ownWeapons) //각 무기에 대한 반복문, 처음에 선언한 bool값으로 해당 반복문에 진입 여부를 결정함
         {
             Weapon weapon = ownWeapon.GetComponent<Weapon>();
-            weapon.Attack(transform.position);
-        }
+            weapon.Generate(transform.position);
+        }//소환수에서 오버라이드
     }
 
     //새로운 무기 선택시 리스트에 넣는 메소드

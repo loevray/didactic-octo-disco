@@ -105,9 +105,9 @@ GameObject:
   - component: {fileID: 2163650406743293048}
   - component: {fileID: 315198573034041859}
   - component: {fileID: 2258029821876326028}
-  - component: {fileID: 1478984537538917456}
+  - component: {fileID: 7312431957947481512}
   m_Layer: 0
-  m_Name: DefaultWeapon
+  m_Name: NormalWeapon
   m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -202,7 +202,7 @@ CapsuleCollider:
   m_Height: 1.2192281
   m_Direction: 2
   m_Center: {x: 0, y: 0.2, z: -0.1}
---- !u!114 &1478984537538917456
+--- !u!114 &7312431957947481512
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -211,17 +211,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 4876598968942705848}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d93264ef520fda04ab90cf2af8c26838, type: 3}
+  m_Script: {fileID: 11500000, guid: 4abdb7abbaf943d4ba9ae4e60133044b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponDamage: 2
+  weaponDamage: 1
   weaponSpeed: 5
   weaponCoolTime: 1
   weaponRange: 3
   damageCoefficient: 0
   speedCoefficient: 0
-  CoolTimeCoefficien: 0
-  RangeCoefficient: 0
+  coolTimeCoefficient: 0
+  rangeCoefficient: 0
 --- !u!1 &4884319847218931150
 GameObject:
   m_ObjectHideFlags: 0

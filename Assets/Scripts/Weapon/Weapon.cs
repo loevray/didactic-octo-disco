@@ -10,12 +10,12 @@ public class Weapon : MonoBehaviour
 
     public int damageCoefficient = 0;
     public float speedCoefficient = 0f;
-    public float CoolTimeCoefficien = 0f;
-    public float RangeCoefficient = 0f;
+    public float coolTimeCoefficient = 0f;
+    public float rangeCoefficient = 0f;
+    protected Vector3 weaponPosition;
 
     //private Dictionary<string, float> stats;
-
-    private float weaponlastShotTime;
+    protected float weaponlastShotTime = -900000;
 
     public enum AbilityType
     {
@@ -24,10 +24,8 @@ public class Weapon : MonoBehaviour
         CoolTime,
         Range
     }
-
     protected virtual void Start()
     {
-        weaponlastShotTime = Time.time - weaponCoolTime;
         //stats = new Dictionary<string, float>
         //{
         //    {"weaponDamage", weaponDamage },
@@ -36,36 +34,15 @@ public class Weapon : MonoBehaviour
         //    {"weaponRange", weaponRange },
         //};
     }
-
-
-    protected virtual void Update()
+    
+    public virtual void Generate(Vector3 position)// 어택이라는 이름이 어색함
     {
-        WeaponMove();
-        WeaponDeleteThreshold();
-    }
-
-    void WeaponDeleteThreshold()
-    {
-        if(transform.position.z >= weaponRange)
-        {
-            Destroy(gameObject);
-        }
-    }
-    void WeaponMove()
-    {
-        transform.Translate(Vector3.forward * weaponSpeed * Time.deltaTime);
-    }
-
-    public void Attack(Vector3 position)
-    {
-        
         if (Time.time - weaponlastShotTime >= weaponCoolTime) 
         {
-            Instantiate(gameObject, position, Quaternion.identity);
+            Vector3 weaponPosition = Instantiate(gameObject, position, Quaternion.identity).transform.position;
             weaponlastShotTime = Time.time;
         }
     }
-
     private void Upgrade(string weaponType, AbilityType ablityType) //weaponType은 태그로 처리
     {
         if (weaponType != gameObject.tag) 
@@ -81,10 +58,10 @@ public class Weapon : MonoBehaviour
                 weaponSpeed += speedCoefficient;
                 break;
             case AbilityType.CoolTime:
-                weaponCoolTime -= CoolTimeCoefficien;
+                weaponCoolTime -= coolTimeCoefficient;
                 break;
             case AbilityType.Range:
-                weaponRange += RangeCoefficient;
+                weaponRange += rangeCoefficient;
                 break;
         }
     }

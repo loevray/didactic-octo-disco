@@ -371,10 +371,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f271261ab010ac848b9238ce2f23de9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootTransform: {fileID: 8189583404466861322}
+  weaponsList:
+  - {fileID: 4876598968942705848, guid: 93569686695b74142a35fc20e5e96c1e, type: 3}
+  - {fileID: 1280873930367277066, guid: 1d6a66b7695f4ba4498cce8c2cbe216b, type: 3}
+  - {fileID: 2303891164885041920, guid: c81fda35a1574a446a13c683c4ed78d0, type: 3}
   ownWeapons:
   - {fileID: 4876598968942705848, guid: 93569686695b74142a35fc20e5e96c1e, type: 3}
   - {fileID: 1280873930367277066, guid: 1d6a66b7695f4ba4498cce8c2cbe216b, type: 3}
+  - {fileID: 2303891164885041920, guid: c81fda35a1574a446a13c683c4ed78d0, type: 3}
 --- !u!1 &4431123970061654272
 GameObject:
   m_ObjectHideFlags: 0

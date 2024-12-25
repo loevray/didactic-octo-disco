@@ -14,7 +14,6 @@ public class Boss : MonoBehaviour
     {
         MoveBossEnemy();
     }
-
     void MoveBossEnemy()
     {
         if (gameObject.tag == "BossEnemy" && transform.position.z <= 11)
@@ -23,7 +22,6 @@ public class Boss : MonoBehaviour
         }
         transform.position += Vector3.back * BossEnemyMoveSpeed * Time.deltaTime;
     }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Weapon")

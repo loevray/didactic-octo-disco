@@ -43,14 +43,11 @@ public class EnemySpawner : MonoBehaviour
         int bossIndex = Random.Range(0, bossEnemies.Length); // 랜덤 보스 선택
         SpawnBossEnemy(bossIndex);
     }
-
-
     public void SpawnEnemy(float posX, float posZ, int index)
     {
         Vector3 spawnPos = new Vector3(posX, 1f, posZ);
         Instantiate(enemies[index], spawnPos, Quaternion.identity);
     }
-
     public void SpawnBossEnemy(int index)
     {
         Vector3 spawnPos = new Vector3(0, 1f, 51f);

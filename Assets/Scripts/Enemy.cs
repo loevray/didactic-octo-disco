@@ -7,21 +7,15 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int enemyHealthPoint = 1;
     [SerializeField] private float enemyDeleteThreshold = -30f;
     [SerializeField] private GameObject exp;
-
-    //public event Action<int> enemyHpChange;  // HP 변경 이벤트
-    //public event Action enemyDead;     // 적 사망 이벤트
-
     void Update()
     {
         MoveEnemy();
         deleteOutEnemy();
     }
-
     void MoveEnemy()
     {
         transform.position += Vector3.back * enemyMoveSpeed * Time.deltaTime;
     }
-
     void deleteOutEnemy()
     {
         if (transform.position.z < enemyDeleteThreshold)
@@ -29,7 +23,6 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
     private void OnTriggerEnter(Collider other)
     {
         CollidWithWeapon(other);
@@ -37,9 +30,6 @@ public class Enemy : MonoBehaviour
         CollidWithPlayer(other);
 
     }
-
-
-
     void CollidWithWeapon(Collider other)
     {
         if (other.gameObject.tag == "Weapon")
@@ -56,7 +46,6 @@ public class Enemy : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
-
     void CollidWithPlayer(Collider other)
     {
         Debug.Log("적에서 충돌 이벤트 발생");
@@ -70,7 +59,6 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
 }
 
 

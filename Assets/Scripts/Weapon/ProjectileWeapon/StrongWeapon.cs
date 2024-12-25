@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class StrongWeapon : Weapon
+public class StrongWeapon : DefaultProjectileWeapon
 {
     //긴 쿨타임, 강력한 데미지
 
@@ -10,8 +10,8 @@ public class StrongWeapon : Weapon
         base.Start();
         damageCoefficient = 10;
         speedCoefficient = 2f;
-        CoolTimeCoefficien = 1f;
-        RangeCoefficient = 5f;
+        coolTimeCoefficient = 1f;
+        rangeCoefficient = 5f;
     }
 
     protected override void Update()
