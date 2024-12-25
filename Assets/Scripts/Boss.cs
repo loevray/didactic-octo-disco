@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Boss : MonoBehaviour
@@ -5,10 +6,12 @@ public class Boss : MonoBehaviour
     [SerializeField] private float BossEnemyMoveSpeed = 15f;
     [SerializeField] private int bossEnemyHealthPoint = 100;
 
+    public static event Action OnBossDestroyed;
     private bool isBossStoped = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     
     // Update is called once per frame
+   
     void Update()
     {
         MoveBossEnemy();
@@ -19,9 +22,13 @@ public class Boss : MonoBehaviour
         }
     }
     
-    private void OnDestroy() {
+    void OnDestroy() {
         //보스 죽었을시 이벤트 실행
-      
+        
+        GameManager gameManager = GameManager.Instance;
+        
+        gameManager.NextStage();
+        OnBossDestroyed?.Invoke();
     }
 
     void MoveBossEnemy()
