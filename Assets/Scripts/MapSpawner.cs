@@ -11,28 +11,36 @@ public class MapSpawner : MonoBehaviour
     [SerializeField] private GameObject[] mapPrefabs;
     [SerializeField] private GameObject[] bossMapPrefab;
    
-    public float mapDeleteCount = 0f; //EnemySpawner에서 사용하기 위해 public으로 교체
-    private Vector3 spawnPosition = new Vector3(0,0,40f);
-
+    public float mapDeleteCount = 0; //EnemySpawner에서 사용하기 위해 public으로 교체
+    private readonly Vector3 spawnPosition = new Vector3(0,0,40f);
     //추가사항
     private bool isBossMapSpawned = false; // 보스맵 상태 관리
     public event Action OnMapSpawned; //EnemySpawner를 작동시키기 위한 액션
     public event Action OnBossMapSpawned;
-    [SerializeField] private float bossMapThreshold = 4f; //보스맵 카운트(수정필요)
+    [SerializeField] private float bossMapThreshold = 4; //보스맵 카운트(수정필요)
+    private readonly int mapQuantityPerStage = 6;
 
     void Start()
     {
         MapTile.OnMapDeleted += HandleMapDeleted;
+        Boss.OnBossDestroyed += HandleBossDestroyed;
+        
+        
         SpawnMap(Vector3.zero); 
         SpawnMap(spawnPosition);
     }
 
     void Update() 
     { 
-        //온 맵 딜리티드가 더해지면 => 맵 생성, x이상 더해지면 대신 보스맵생성
         
     }
-
+ 
+    void HandleBossDestroyed(){
+        isBossMapSpawned = false;
+        mapDeleteCount = 0;
+        SpawnMap(spawnPosition);
+    }
+    
     void HandleMapDeleted()
     {
         mapDeleteCount++;
@@ -41,7 +49,7 @@ public class MapSpawner : MonoBehaviour
             return;
         }
 
-        if (mapDeleteCount > bossMapThreshold)
+        if (mapDeleteCount > bossMapThreshold) 
         {
             BossMapSpawn();
         }
@@ -50,10 +58,15 @@ public class MapSpawner : MonoBehaviour
             SpawnMap(spawnPosition);
         }
     }
-
+    
     void SpawnMap(Vector3 position)
     {
-        GameObject selectedNewMap = mapPrefabs[UnityEngine.Random.Range(0,mapPrefabs.Length-1)]; 
+        GameManager gameManager = GameManager.Instance;
+        Debug.Log("맵 스폰 됨" + gameManager.CurrentStage);
+        int minIndex = (gameManager.CurrentStage-1) * mapQuantityPerStage;
+        int maxIndex = gameManager.CurrentStage * mapQuantityPerStage;
+        
+        GameObject selectedNewMap = mapPrefabs[UnityEngine.Random.Range(minIndex, maxIndex)]; 
         GameObject newMap = Instantiate(selectedNewMap, position, Quaternion.identity);
         
         OnMapSpawned?.Invoke();//EnemySpawner를 작동시키기 위한 호출
@@ -61,8 +74,9 @@ public class MapSpawner : MonoBehaviour
 
     void BossMapSpawn()
     {
+        GameManager gameManager = GameManager.Instance;
         
-        GameObject selecteBossMap = bossMapPrefab[UnityEngine.Random.Range(0, bossMapPrefab.Length)];
+        GameObject selecteBossMap = bossMapPrefab[gameManager.CurrentStage-1];
         GameObject bossMapSpawn = Instantiate(selecteBossMap, spawnPosition, Quaternion.identity);
 
         OnBossMapSpawned?.Invoke();
