@@ -23,13 +23,6 @@ public class GameManager : MonoBehaviour {
     private float speedBoostChance = 0.3f;  // 이동 속도 증가 카드 확률
 
     Button abilityButton;
-    
-    void Awake(){
-        if(instance == null){
-            instance = this;
-        }
-    }
-    
     public static GameManager Instance{
         get{
             if(instance == null){
@@ -38,6 +31,13 @@ public class GameManager : MonoBehaviour {
             return instance;
         }
     }
+    void Awake(){
+        if(instance == null){
+            instance = this;
+        }
+    }
+    
+
     void Start() {
             
     }

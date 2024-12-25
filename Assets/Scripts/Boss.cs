@@ -7,11 +7,7 @@ public class Boss : MonoBehaviour
     [SerializeField] private int bossEnemyHealthPoint = 100;
 
     public static event Action OnBossDestroyed;
-    private bool isBossStoped = false;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     
-    // Update is called once per frame
-   
     void Update()
     {
         MoveBossEnemy();

@@ -3,40 +3,32 @@ using UnityEngine;
 
 public class MapTile : MonoBehaviour
 {
+    [SerializeField] protected float moveSpeed = 15f;
+    protected float deleteThresholdPosition = -40f;
+    public static event Action OnMapDeleted;
 
-    [SerializeField] private float moveSpeed = 15f;
-    private float deleteThresholdPodition = -40f;
-    static public event Action OnMapDeleted; //�� ������ �̺�Ʈ
-    
-    void Start()
+    protected virtual void Start()
     {
-        
+        // 기본 맵 타일의 초기화 작업
     }
 
-    // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         MoveMapTile();
         DeleteMap();
     }
 
-    void MoveMapTile()
+    protected virtual void MoveMapTile()
     {
-        if (gameObject.tag == "BossMap" && transform.position.z <= 0)
-        {
-            return;
-        }
         transform.position += Vector3.back * moveSpeed * Time.deltaTime;
     }
 
-    void DeleteMap()
+    protected void DeleteMap()
     {
-        if (transform.position.z < deleteThresholdPodition)
+        if (transform.position.z <= deleteThresholdPosition)
         {
-            Destroy(gameObject);
             OnMapDeleted?.Invoke();
+            Destroy(gameObject);
         }
     }
-
-    //�̵�(�����ʽ� ����), ����(������ ī��Ʈ �ʽ����ʿ� ����)
 }
