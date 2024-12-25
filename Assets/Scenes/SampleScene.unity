@@ -1160,8 +1160,15 @@ MonoBehaviour:
   - {fileID: 4688780112080945653, guid: 3737ce76c8496374e82bc9a2a72eb241, type: 3}
   - {fileID: 4210364049689512863, guid: 43076b4c7e217b64fb83beb45764f808, type: 3}
   - {fileID: 4210364049689512863, guid: 91d2e926aad58564b89be5d19845bf81, type: 3}
+  - {fileID: 5071155963120384735, guid: 139db0f3c76d95c47b9e4d84c5fda652, type: 3}
+  - {fileID: 510397205223473340, guid: 0c389ce224986d74f96b8d9ebc7a7c30, type: 3}
+  - {fileID: 4171979486630102440, guid: dfb9b52509301324381e8956ddcbfa25, type: 3}
+  - {fileID: 574036951789867735, guid: 164174519b5bf084f84f37b57d22e82c, type: 3}
+  - {fileID: 210566827083130489, guid: 0c4e62da81a22e34a870b764332314ea, type: 3}
+  - {fileID: 8702842336181615068, guid: 3d3c6190c4e157b439aea81d156de999, type: 3}
   bossMapPrefab:
   - {fileID: 3743737909779176324, guid: 0f861376dca150b4fbc5eece4245ee61, type: 3}
+  - {fileID: 2850797483176360005, guid: e9ef0e23d45c9e6448aaea58f6964af3, type: 3}
   mapDeleteCount: 0
   bossMapThreshold: 4
 --- !u!4 &948568411
@@ -1209,6 +1216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardSelectionUI: {fileID: 1641077027}
+  cardButtons: []
 --- !u!4 &1130118629
 Transform:
   m_ObjectHideFlags: 0
