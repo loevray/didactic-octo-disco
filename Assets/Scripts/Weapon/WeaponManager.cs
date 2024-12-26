@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
 {
-
     [SerializeField] private GameObject[] weaponsList = new GameObject[3];
     [SerializeField] private GameObject[] ownWeapons = new GameObject[3];
     
