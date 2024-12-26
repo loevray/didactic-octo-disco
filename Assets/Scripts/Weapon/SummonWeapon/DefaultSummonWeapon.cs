@@ -8,7 +8,11 @@ public class DefaultSummonWeapon : Weapon
     [SerializeField] private float followDistance = 2f;
     public float projectileCoolTime = 1f;
     public GameObject SummonsWeapon; // squidInkPrefab
-
+    
+    private void Awake()
+    {
+        AudioManager.instance.PlaySfx(AudioManager.Sfx.SummonPet);
+    }
     protected override void Start()
     {
         base.Start();
@@ -53,14 +57,16 @@ public class DefaultSummonWeapon : Weapon
 
     public override void Generate(Vector3 position)
     {
-        base.Generate(position);
+        Vector3 ModifiySummonPosition = new Vector3(position.x + 2, position.y, position.z - 4);
+        base.Generate(ModifiySummonPosition);
     }
 
     void GenerateSummonsWeapon()
     {
+        Vector3 shootPositionModifiy = new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z);
         if ((DateTime.Now - weaponLastShotTime).TotalSeconds >= projectileCoolTime)
         {
-            GameObject instance = Instantiate(SummonsWeapon, transform.position, Quaternion.identity);
+            GameObject instance = Instantiate(SummonsWeapon, shootPositionModifiy, Quaternion.identity);
             SummonsWeapon summonsWeaponScript = instance.GetComponent<SummonsWeapon>();
             weaponLastShotTime = DateTime.Now;
         }

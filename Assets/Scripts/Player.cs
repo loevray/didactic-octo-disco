@@ -67,6 +67,7 @@ public class Player : MonoBehaviour
     }
     
     public void TakeDamage(int damage){
+        AudioManager.instance.PlaySfx(AudioManager.Sfx.PlayerHitSound);
         currentHealthPoint -= damage;
         
         OnHpChanged?.Invoke(currentHealthPoint);
@@ -100,6 +101,7 @@ public class Player : MonoBehaviour
     
     private void LevelUp()
     {
+        AudioManager.instance.PlaySfx(AudioManager.Sfx.LevelUp);
         level++;
 
         int prevMaxHealthPoint = currentMaxHealthPoint;

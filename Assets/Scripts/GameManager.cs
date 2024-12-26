@@ -12,6 +12,11 @@ public class GameManager : Singleton<GameManager>
 
     public event System.Action OnNextStage;
 
+    protected override void Awake()
+    {
+        AudioManager.instance.PlayBgm(true);
+    }
+
     public void NextStage()
     {
         if (currentStage < maxStage)
