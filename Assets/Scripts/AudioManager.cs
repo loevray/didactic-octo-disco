@@ -22,8 +22,10 @@ public class AudioManager : Singleton<GameManager>
     public enum Sfx
     {
         OceanEnemyDeath,
+        BossEnemyDeath,
         ShootNormalWeapon,
         ShootStrongWeapon,
+        SummonPet,
         ShootSummonsWeapon,
         GetExpOrb
     }

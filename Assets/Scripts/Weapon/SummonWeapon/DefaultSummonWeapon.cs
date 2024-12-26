@@ -8,7 +8,11 @@ public class DefaultSummonWeapon : Weapon
     [SerializeField] private float followDistance = 2f;
     public float projectileCoolTime = 1f;
     public GameObject SummonsWeapon; // squidInkPrefab
-
+    
+    private void Awake()
+    {
+        AudioManager.instance.PlaySfx(AudioManager.Sfx.SummonPet);
+    }
     protected override void Start()
     {
         base.Start();
