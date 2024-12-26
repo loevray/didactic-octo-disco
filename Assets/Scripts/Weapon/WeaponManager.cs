@@ -1,8 +1,22 @@
 using System.Collections.Generic;
-using NUnit.Framework;
+
 using UnityEngine;
 
-public class WeaponManager : MonoBehaviour
+
+public enum WeaponType{
+  Normal,
+  Strong,
+  Pet,
+}
+
+public enum WeaponAbilityType{
+  Damage,
+  CoolTime,
+  Speed,
+  Range
+}
+
+public class WeaponManager : Singleton<WeaponManager>
 {
     [SerializeField] private GameObject[] weaponsList = new GameObject[3];
     [SerializeField] private GameObject[] ownWeapons = new GameObject[3];
@@ -35,10 +49,4 @@ public class WeaponManager : MonoBehaviour
         return availableWeapons;
     }
 
-    public enum WeaponType
-    {
-        Default,//0 
-        Strong,//1
-        Pet//2
-    }
 }

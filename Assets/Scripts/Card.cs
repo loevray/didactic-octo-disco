@@ -6,19 +6,6 @@ public enum CardType {
     SpeedBoost      // 이동 속도 증가 카드
 }
 
-public enum WeaponType{
-  Normal,
-  Strong,
-  Pet,
-}
-
-public enum WeaponAbilityType{
-  Damage,
-  CoolTime,
-  Speed,
-  Range
-}
-
 public class Card {
     public CardType cardType;  // 카드의 종류
     public WeaponType weaponType;

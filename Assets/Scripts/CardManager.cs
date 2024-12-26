@@ -13,7 +13,7 @@ public class CardManager : Singleton<CardManager>
         Debug.Log("Card Pool Cleared" + cardPool.Count);
         
         bool isNewWeapon = true;
-        
+
 
         while (cardPool.Count < UIManager.Instance.cardButtons.Length)
         {
