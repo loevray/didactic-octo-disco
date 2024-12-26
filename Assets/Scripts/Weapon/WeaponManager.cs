@@ -16,6 +16,9 @@ public class WeaponManager : Singleton<WeaponManager>
     
     public void FireOwnWeapon()
     {
+        GameManager gameManager = GameManager.Instance;
+        if(gameManager.isPaused) return;
+
         foreach (GameObject ownWeapon in ownWeapons)
         {
             Weapon weapon = ownWeapon.GetComponent<Weapon>();
@@ -61,7 +64,7 @@ public class WeaponManager : Singleton<WeaponManager>
     public List<WeaponType> GetOwnWeaponList()
     {
         List<WeaponType> ownWeaponsList = new List<WeaponType>();
-        for (int i =1; i < 3; i++)
+        for (int i = 0; i < 3; i++)
         {
             if(ownWeapons[i] != null)
             {

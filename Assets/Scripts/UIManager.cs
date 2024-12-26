@@ -9,7 +9,6 @@ public class UIManager : Singleton<UIManager> {
 
     public void ShowCardSelectionUI(bool show) {
         cardSelectionUI.SetActive(show);
-        Time.timeScale = show ? 0 : 1;
     }
 
     public void InjectCardInfo() {
@@ -40,5 +39,8 @@ public class UIManager : Singleton<UIManager> {
         Card selectedCard = new List<Card>(CardManager.Instance.cardPool)[index];
         CardManager.Instance.ApplyCard(selectedCard);
         ShowCardSelectionUI(false);
+        
+        GameManager gameManager = GameManager.Instance;
+        gameManager.PauseGame(false);
     }
 }

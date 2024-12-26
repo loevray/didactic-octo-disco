@@ -18,6 +18,7 @@ public class Player : Singleton<Player>
     public event Action<int> OnHpChanged;  // HP 변경 이벤트
     public event Action OnPlayerDead;     // 플레이어 사망 이벤트
     private WeaponManager weaponManager;
+    
 
     void Start()
     {

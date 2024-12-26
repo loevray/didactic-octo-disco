@@ -40,7 +40,7 @@ public class CardManager : Singleton<CardManager>
                 int weaponsToUpradeIndex = Random.Range(0, ownWeaponList.Count);
                 WeaponType weaponsToUprade = ownWeaponList[weaponsToUpradeIndex];
                 WeaponAbilityType weaponAbility = (WeaponAbilityType)Random.Range(0, 4);
-                cardPool.Add(new Card(CardType.WeaponUpgrade, weaponsToUprade,weaponAbilityType: weaponAbility));
+                cardPool.Add(new Card(CardType.WeaponUpgrade, weaponsToUprade, weaponAbilityType: weaponAbility));
                 Debug.Log("Added Weapon Upgrade Card");
             }
             else if (rand < newWeaponChance + upgradeCardChance + speedBoostChance)
