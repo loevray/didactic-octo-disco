@@ -28,6 +28,7 @@ public class AudioManager : Singleton<GameManager>
         SummonPet,
         ShootSummonsWeapon,
         GetExpOrb,
+        LevelUp,
         CardSelect
     }
 
@@ -56,6 +57,17 @@ public class AudioManager : Singleton<GameManager>
             sfxPlayer[index] = sfxObject.AddComponent<AudioSource>();
             sfxPlayer[index].playOnAwake = false;
             sfxPlayer[index].volume = sfxVolume;
+        }
+    }
+    public void PlayBgm(bool isPlay)
+    {
+        if (isPlay)
+        {
+            bgmPlayer.Play();
+        }
+        else
+        {
+            bgmPlayer.Stop();
         }
     }
 
