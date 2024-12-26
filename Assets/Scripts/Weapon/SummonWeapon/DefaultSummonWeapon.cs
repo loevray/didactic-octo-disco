@@ -13,10 +13,16 @@ public class DefaultSummonWeapon : Weapon
     {
         AudioManager.instance.PlaySfx(AudioManager.Sfx.SummonPet);
     }
+
+    public override float weaponCoolTime
+    {
+        get => 100000000f;
+        set => base.weaponCoolTime = value;
+    }
+
     protected override void Start()
     {
         base.Start();
-        weaponCoolTime = 2f;
         FindPlayerPosition();
     }
 

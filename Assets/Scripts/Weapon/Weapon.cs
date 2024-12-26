@@ -14,7 +14,12 @@ public class Weapon : MonoBehaviour
 {
     [SerializeField] public int weaponDamage = 1;
     [SerializeField] public float weaponSpeed = 5f;
-    [SerializeField] public float weaponCoolTime = 1f;
+    [SerializeField] public float _weaponCoolTime = 1f;
+    public virtual float weaponCoolTime
+    {
+        get => _weaponCoolTime;
+        set => _weaponCoolTime = value;
+    }
     [SerializeField] public float weaponRange = 3f;
 
     public int damageCoefficient = 0;
