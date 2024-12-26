@@ -50,10 +50,10 @@ public class CardManager : Singleton<CardManager>
                 weaponManager.EquimentWeapon(card.weaponType);
                 break;
             case CardType.WeaponUpgrade:
-                Debug.Log("Upgrade Weapon: " + card.weaponType + " " + card.weaponAbilityType);
+                weaponManager.UpgradeWeapon(card.weaponType, card.weaponAbilityType);
                 break;
             case CardType.SpeedBoost:
-                Debug.Log("Speed Boost!");
+                Player.Instance.SpeedBoost(1);
                 break;
         }
     }
