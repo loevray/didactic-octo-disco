@@ -6,6 +6,8 @@ public class CardManager : Singleton<CardManager>
     private float newWeaponChance = 0.3f;
     private float upgradeCardChance = 0.5f;
     private float speedBoostChance = 0.2f;
+    
+    WeaponManager weaponManager = WeaponManager.Instance;
 
     public void GenerateCardPool()
     {
@@ -45,7 +47,7 @@ public class CardManager : Singleton<CardManager>
         switch (card.cardType)
         {
             case CardType.NewWeapon:
-                Debug.Log("New Weapon: " + card.weaponType);
+                weaponManager.EquimentWeapon(card.weaponType);
                 break;
             case CardType.WeaponUpgrade:
                 Debug.Log("Upgrade Weapon: " + card.weaponType + " " + card.weaponAbilityType);

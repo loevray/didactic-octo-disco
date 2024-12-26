@@ -2,6 +2,14 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum WeaponAbilityType{
+  Damage,
+  CoolTime,
+  Speed,
+  Range
+}
+
+
 public class Weapon : MonoBehaviour
 {
     [SerializeField] public int weaponDamage = 1;
@@ -17,13 +25,6 @@ public class Weapon : MonoBehaviour
 
     protected DateTime weaponLastShotTime;
 
-    public enum AbilityType
-    {
-        Damage,
-        Speed,
-        CoolTime,
-        Range
-    }
 
     private void Awake()
     {
@@ -52,24 +53,20 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    private void Upgrade(string weaponType, AbilityType ablityType) 
+    public void Upgrade(WeaponAbilityType weaponAbilityType) 
     {
-        if (weaponType != gameObject.tag)
+        switch (weaponAbilityType) 
         {
-            return;
-        }
-        switch (ablityType) 
-        {
-            case AbilityType.Damage:
+            case WeaponAbilityType.Damage:
                 weaponDamage += damageCoefficient;
                 break;
-            case AbilityType.Speed:
+            case WeaponAbilityType.Speed:
                 weaponSpeed += speedCoefficient;
                 break;
-            case AbilityType.CoolTime:
+            case WeaponAbilityType.CoolTime:
                 weaponCoolTime -= coolTimeCoefficient;
                 break;
-            case AbilityType.Range:
+            case WeaponAbilityType.Range:
                 weaponRange += rangeCoefficient;
                 break;
         }

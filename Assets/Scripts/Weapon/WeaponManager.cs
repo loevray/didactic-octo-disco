@@ -36,6 +36,14 @@ public class WeaponManager : Singleton<WeaponManager>
         GameObject newWeapon = weaponsList[(int)weaponType];
         ownWeapons[(int)weaponType] = newWeapon;
     }
+    
+    public void UpgradeWeapon(WeaponType weaponType, WeaponAbilityType abilityType)
+    {
+        GameObject weapon = ownWeapons[(int)weaponType];
+        Weapon weaponScript = weapon.GetComponent<Weapon>();
+        weaponScript.Upgrade(abilityType);
+    }
+    
     public List<WeaponType> GetAvailableWeaponList()
     {
         List<WeaponType> availableWeapons = new List<WeaponType>();
