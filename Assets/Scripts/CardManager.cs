@@ -3,8 +3,8 @@ using UnityEngine;
 public class CardManager : Singleton<CardManager>
 {
     public HashSet<Card> cardPool = new HashSet<Card>();
-    private float newWeaponChance = 0.3f;
-    private float upgradeCardChance = 0.5f;
+    private float newWeaponChance = 0.1f;
+    private float upgradeCardChance = 0.7f;
     private float speedBoostChance = 0.2f;
     
     private WeaponManager weaponManager;

@@ -21,6 +21,8 @@ public class WeaponManager : Singleton<WeaponManager>
 
         foreach (GameObject ownWeapon in ownWeapons)
         {
+            if(ownWeapon == null) continue;
+            
             Weapon weapon = ownWeapon.GetComponent<Weapon>();
             weapon.Generate(transform.position);
         }

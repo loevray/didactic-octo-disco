@@ -1180,6 +1180,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5022297343332598749, guid: ba00cb9e3e67cba4ab4a475958c810f7, type: 3}
+      propertyPath: 'ownWeapons.Array.data[1]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5022297343332598749, guid: ba00cb9e3e67cba4ab4a475958c810f7, type: 3}
+      propertyPath: 'ownWeapons.Array.data[2]'
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7402936901560740618, guid: ba00cb9e3e67cba4ab4a475958c810f7, type: 3}
       propertyPath: m_Name
       value: shark

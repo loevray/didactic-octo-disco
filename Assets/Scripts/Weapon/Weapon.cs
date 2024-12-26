@@ -37,7 +37,7 @@ public class Weapon : MonoBehaviour
         get => _speedCoefficient;
         set => _speedCoefficient = value;
     }
-    public float _coolTimeCoefficient = 0f;
+    public float _coolTimeCoefficient = 0.025f;
     
     public virtual float coolTimeCoefficient
     {
