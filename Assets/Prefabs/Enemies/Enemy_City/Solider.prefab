@@ -544,6 +544,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6006860803467475088}
   - component: {fileID: 7040883039876878285}
+  - component: {fileID: -5189300121193173497}
   m_Layer: 0
   m_Name: Solider
   m_TagString: Enemy
@@ -589,6 +590,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.4058536, y: 2.482452, z: 1.470787}
   m_Center: {x: 0.04870242, y: 0.416543, z: 0.06493759}
+--- !u!114 &-5189300121193173497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4657448494432906815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97bdba9e6f959fa4a82cc9e69b0819ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyMoveSpeed: 15
+  enemyHealthPoint: 1
+  enemyDeleteThreshold: -30
+  exp: {fileID: 8310827175246301871, guid: f176963dcb8e8a149ae6939e4458db40, type: 3}
 --- !u!1 &4998333538268501129
 GameObject:
   m_ObjectHideFlags: 0

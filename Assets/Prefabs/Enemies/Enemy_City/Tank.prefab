@@ -96,6 +96,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8141458213675014134}
   - component: {fileID: 3762124974721005241}
+  - component: {fileID: -5315333363640029284}
   m_Layer: 0
   m_Name: Tank
   m_TagString: BossEnemy
@@ -140,6 +141,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 6.5520926, y: 5.048573, z: 12.315139}
   m_Center: {x: 0.048573736, y: 2.5454109, z: -0.010340214}
+--- !u!114 &-5315333363640029284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5128220110666340661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dee56a57ad39e7f43b6ca0716a05688f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BossEnemyMoveSpeed: 15
+  bossEnemyHealthPoint: 100
+  exp: {fileID: 0}
 --- !u!1 &5142754421019298024
 GameObject:
   m_ObjectHideFlags: 0

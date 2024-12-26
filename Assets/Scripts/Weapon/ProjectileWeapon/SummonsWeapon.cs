@@ -12,9 +12,6 @@ public class SummonsWeapon : DefaultProjectileWeapon
     protected override void Update()
     {
         base.Update();
-        if (summonWeapon != null)
-        {
-            transform.position = summonWeapon.transform.position;
-        }
+        
     }
 }

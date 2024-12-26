@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float enemyMoveSpeed = 15f;
     [SerializeField] private int enemyHealthPoint = 1;
     [SerializeField] private float enemyDeleteThreshold = -30f;
+    [SerializeField] private GameObject exp;
 
     //public event Action<int> enemyHpChange;  
     //public event Action enemyDead;    
@@ -31,30 +32,38 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        CollideWeapon(other);
+        CollidePlayer(other);
+    }
+
+    private void CollidePlayer(Collider other)
+    {
         if (other.gameObject.tag == "Player")
         {
             Player player = other.gameObject.GetComponent<Player>();
             Debug.Log(enemyHealthPoint);
             player.TakeDamage(enemyHealthPoint);
-            
+
             Destroy(gameObject);
         }
     }
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.gameObject.tag == "Weapon")
-    //    {
-    //        Weapon weapon = other.gameObject.GetComponent<Weapon>();
-    //        enemyHealthPoint -= weapon.damage;
-    //        if (enemyHealthPoint < 0)
-    //        {
-    //            Instantiate(Exp, transform.position, Quaternion.identity);
-    //            Destroy(gameObject);
-    //        }
-    //    }
-    //}
-
+    private void CollideWeapon(Collider other)
+    {
+        if (other.gameObject.tag == "Weapon")
+        {
+            Vector3 expPositionModifiy = new Vector3(transform.position.x, transform.position.y + 0.7f, transform.position.z);
+            Weapon weapon = other.gameObject.GetComponent<Weapon>();
+            enemyHealthPoint -= weapon.weaponDamage;
+            if (enemyHealthPoint < 0)
+            {
+                Instantiate(exp, expPositionModifiy, Quaternion.identity);
+                Destroy(gameObject);
+            }
+            Destroy(other.gameObject);
+        }
+    }
 }
+
 
 

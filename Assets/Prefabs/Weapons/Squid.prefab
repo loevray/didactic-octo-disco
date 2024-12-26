@@ -208,7 +208,7 @@ MonoBehaviour:
   followSpeed: 1
   followDistance: 2
   projectileCoolTime: 1
-  SummonsWeapon: {fileID: 1438926842528533095, guid: c3dae953027ef0b459e54355365f7bb6, type: 3}
+  SummonsWeapon: {fileID: 4822789101252517901, guid: 4b930d685833b55458cec10c2d27f07a, type: 3}
 --- !u!1 &2363597071399855208
 GameObject:
   m_ObjectHideFlags: 0
@@ -680,7 +680,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2020878341465833824}
   m_Layer: 0
-  m_Name: ' squidshootTransform'
+  m_Name: ' squidShootTransform'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -695,7 +695,7 @@ Transform:
   m_GameObject: {fileID: 5931811756022573514}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.42, z: 0.338}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
