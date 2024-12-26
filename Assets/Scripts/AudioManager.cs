@@ -27,7 +27,8 @@ public class AudioManager : Singleton<GameManager>
         ShootStrongWeapon,
         SummonPet,
         ShootSummonsWeapon,
-        GetExpOrb
+        GetExpOrb,
+        CardSelect
     }
 
     protected override void Awake()
