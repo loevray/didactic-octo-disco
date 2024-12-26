@@ -57,7 +57,8 @@ public class DefaultSummonWeapon : Weapon
 
     public override void Generate(Vector3 position)
     {
-        base.Generate(position);
+        Vector3 ModifiySummonPosition = new Vector3(position.x + 2, position.y, position.z - 4);
+        base.Generate(ModifiySummonPosition);
     }
 
     void GenerateSummonsWeapon()
