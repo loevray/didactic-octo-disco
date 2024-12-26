@@ -46,6 +46,7 @@ public class WeaponManager : Singleton<WeaponManager>
     public List<WeaponType> GetAvailableWeaponList()
     {
         List<WeaponType> availableWeapons = new List<WeaponType>();
+        
         for (int i =1; i < 3; i++)
         {
             if(ownWeapons[i] == null)
@@ -53,7 +54,21 @@ public class WeaponManager : Singleton<WeaponManager>
                 availableWeapons.Add((WeaponType)(i));
             }
         }
+        
         return availableWeapons;
+    }
+    
+    public List<WeaponType> GetOwnWeaponList()
+    {
+        List<WeaponType> ownWeaponsList = new List<WeaponType>();
+        for (int i =1; i < 3; i++)
+        {
+            if(ownWeapons[i] != null)
+            {
+                ownWeaponsList.Add((WeaponType)(i));
+            }
+        }
+        return ownWeaponsList;
     }
 
 }
