@@ -6,11 +6,15 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float enemyMoveSpeed = 15f;
     [SerializeField] private int enemyHealthPoint = 1;
     [SerializeField] private float enemyDeleteThreshold = -30f;
+    [SerializeField] private AudioClip enemyDeathSound;
+    private AudioSource audioSource;
     [SerializeField] private GameObject exp;
 
-    //public event Action<int> enemyHpChange;  
-    //public event Action enemyDead;    
-
+ 
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     void Update()
     {
         MoveEnemy();
@@ -55,9 +59,10 @@ public class Enemy : MonoBehaviour
             Vector3 expPositionModifiy = new Vector3(transform.position.x, transform.position.y + 0.7f, transform.position.z);
             Weapon weapon = other.gameObject.GetComponent<Weapon>();
             enemyHealthPoint -= weapon.weaponDamage;
-            if (enemyHealthPoint < 0)
+            if (enemyHealthPoint <= 0)
             {
                 Instantiate(exp, expPositionModifiy, Quaternion.identity);
+                AudioManager.instance.PlaySfx(AudioManager.Sfx.OceanEnemyDeath);
                 Destroy(gameObject);
             }
             Destroy(other.gameObject);

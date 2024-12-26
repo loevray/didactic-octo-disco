@@ -1,10 +1,16 @@
+using System;
 using UnityEngine;
 
 public class NormalWeapon : DefaultProjectileWeapon
 {
-    //±ä ÄğÅ¸ÀÓ, °­·ÂÇÑ µ¥¹ÌÁö
+    //ê¸´ ì¿¨íƒ€ì„, ê°•ë ¥í•œ ë°ë¯¸ì§€
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    private void Awake()
+    {
+        AudioManager.instance.PlaySfx(AudioManager.Sfx.ShootNormalWeapon);
+    }
     protected override void Start()
     {
         base.Start();
@@ -14,5 +20,12 @@ public class NormalWeapon : DefaultProjectileWeapon
     {
         base.Update();
     }
+
+    //public override void Generate(Vector3 position)
+    //{
+    //    base.Generate(position);
+    //    AudioManager.instance.PlaySfx(AudioManager.Sfx.ShootNormalWeapon);
+    //}
+
 
 }

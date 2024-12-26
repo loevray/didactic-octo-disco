@@ -199,7 +199,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponDamage: 1
   weaponSpeed: 5
-  weaponCoolTime: 3
+  weaponCoolTime: 10000
   weaponRange: 3
   damageCoefficient: 0
   speedCoefficient: 0
