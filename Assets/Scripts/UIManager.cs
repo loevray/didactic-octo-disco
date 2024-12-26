@@ -19,8 +19,16 @@ public class UIManager : Singleton<UIManager> {
             Card card = cardList[i];
             Button button = cardButtons[i];
             TMP_Text buttonText = button.GetComponentInChildren<TMP_Text>();
-
-            buttonText.text = card.cardType.ToString();
+            
+            if(card.cardType == CardType.NewWeapon) {
+                buttonText.text = card.weaponType.ToString();
+            } else if(card.cardType == CardType.WeaponUpgrade) {
+                buttonText.text = card.weaponType.ToString() + " " + card.weaponAbilityType.ToString();
+            } else if(card.cardType == CardType.SpeedBoost) {
+                buttonText.text = card.cardType.ToString();
+            }
+            
+            buttonText.fontSize = 40;
             button.onClick.RemoveAllListeners();
 
             int capturedIndex = i;
