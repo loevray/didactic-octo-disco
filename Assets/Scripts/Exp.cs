@@ -20,12 +20,11 @@ public class Exp : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("EXP에서 충돌 이벤트 발생");
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("EXP에서 플레이어와 충돌 이벤트 발생");
             Player player = other.gameObject.GetComponent<Player>();
             player.IncreaseExp(expAmount);
+            AudioManager.instance.PlaySfx(AudioManager.Sfx.GetExpOrb);
             Destroy(gameObject);
         }
     }

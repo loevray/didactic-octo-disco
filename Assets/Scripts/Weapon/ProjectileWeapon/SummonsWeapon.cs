@@ -2,7 +2,11 @@ using UnityEngine;
 
 public class SummonsWeapon : DefaultProjectileWeapon
 {
-    private DefaultSummonWeapon summonWeapon; 
+    private DefaultSummonWeapon summonWeapon;
+    private void Awake()
+    {
+        AudioManager.instance.PlaySfx(AudioManager.Sfx.ShootSummonsWeapon);
+    }
 
     protected override void Start()
     {

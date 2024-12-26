@@ -2,6 +2,11 @@ using UnityEngine;
 
 public class StrongWeapon : DefaultProjectileWeapon
 {
+
+    private void Awake()
+    {
+        AudioManager.instance.PlaySfx(AudioManager.Sfx.ShootStrongWeapon);
+    }
     protected override void Start()
     {
         base.Start();

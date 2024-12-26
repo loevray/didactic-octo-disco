@@ -1,7 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class AudioManager : MonoBehaviour
+public class AudioManager : Singleton<GameManager>
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
@@ -23,10 +23,12 @@ public class AudioManager : MonoBehaviour
     {
         OceanEnemyDeath,
         ShootNormalWeapon,
-        ShootSummonsWeapon
+        ShootStrongWeapon,
+        ShootSummonsWeapon,
+        GetExpOrb
     }
 
-    void Awake()
+    protected override void Awake()
     {
         instance = this;
         init();

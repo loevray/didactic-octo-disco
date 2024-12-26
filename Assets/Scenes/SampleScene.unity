@@ -509,10 +509,10 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 57ec8eea20317df479387af5e8df97b7, type: 3}
+  m_Resource: {fileID: 8300000, guid: 57ec8eea20317df479387af5e8df97b7, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1405,7 +1405,9 @@ MonoBehaviour:
   sfxClips:
   - {fileID: 8300000, guid: c57e1f0d45099614da02c90fdb125fd8, type: 3}
   - {fileID: 8300000, guid: 57ec8eea20317df479387af5e8df97b7, type: 3}
+  - {fileID: 8300000, guid: acc078d6c003cd34e9145a893ce38c53, type: 3}
   - {fileID: 8300000, guid: d1e1fa457d545c34dbd9cfbb433bce57, type: 3}
+  - {fileID: 8300000, guid: 1ae11ad7152a7904b84b934a5b6bd3ed, type: 3}
   sfxVolume: 0.5
   channels: 16
 --- !u!4 &1049614075

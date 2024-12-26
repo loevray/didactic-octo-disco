@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4713212469949830321}
   - component: {fileID: 2550441155201038494}
   - component: {fileID: 4659289699262100339}
-  - component: {fileID: 2495735557493272838}
   - component: {fileID: -7303183753263277785}
   - component: {fileID: 5651027422384565803}
+  - component: {fileID: 2495735557493272838}
   m_Layer: 0
   m_Name: SummonsWeapon
   m_TagString: Weapon
@@ -89,26 +89,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4822789101252517901}
   m_Mesh: {fileID: -5792010012141812382, guid: bed0bccbcb4953042a4a548386ecf361, type: 3}
---- !u!114 &2495735557493272838
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4822789101252517901}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6c0e8ced1deb664dafb88ab08cf5d25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponDamage: 1
-  weaponSpeed: 5
-  weaponCoolTime: 1
-  weaponRange: 3
-  damageCoefficient: 0
-  speedCoefficient: 0
-  coolTimeCoefficient: 0
-  rangeCoefficient: 0
 --- !u!54 &-7303183753263277785
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -159,3 +139,23 @@ CapsuleCollider:
   m_Height: 36.027374
   m_Direction: 2
   m_Center: {x: 0.0771135, y: -0.00003943648, z: -19.119846}
+--- !u!114 &2495735557493272838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4822789101252517901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6c0e8ced1deb664dafb88ab08cf5d25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponDamage: 2
+  weaponSpeed: 7
+  weaponCoolTime: 3
+  weaponRange: 4
+  damageCoefficient: 0
+  speedCoefficient: 0
+  coolTimeCoefficient: 0
+  rangeCoefficient: 0
