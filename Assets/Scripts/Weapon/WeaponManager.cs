@@ -16,8 +16,13 @@ public class WeaponManager : Singleton<WeaponManager>
     
     public void FireOwnWeapon()
     {
+        GameManager gameManager = GameManager.Instance;
+        if(gameManager.isPaused) return;
+
         foreach (GameObject ownWeapon in ownWeapons)
         {
+            if(ownWeapon == null) continue;
+            
             Weapon weapon = ownWeapon.GetComponent<Weapon>();
             weapon.Generate(transform.position);
         }
@@ -46,6 +51,7 @@ public class WeaponManager : Singleton<WeaponManager>
     public List<WeaponType> GetAvailableWeaponList()
     {
         List<WeaponType> availableWeapons = new List<WeaponType>();
+        
         for (int i =1; i < 3; i++)
         {
             if(ownWeapons[i] == null)
@@ -53,7 +59,21 @@ public class WeaponManager : Singleton<WeaponManager>
                 availableWeapons.Add((WeaponType)(i));
             }
         }
+        
         return availableWeapons;
+    }
+    
+    public List<WeaponType> GetOwnWeaponList()
+    {
+        List<WeaponType> ownWeaponsList = new List<WeaponType>();
+        for (int i = 0; i < 3; i++)
+        {
+            if(ownWeapons[i] != null)
+            {
+                ownWeaponsList.Add((WeaponType)(i));
+            }
+        }
+        return ownWeaponsList;
     }
 
 }

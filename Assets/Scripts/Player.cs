@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : Singleton<Player>
 {
     
     [SerializeField] private float moveSpeed = 20f;
@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     public event Action<int> OnHpChanged;  // HP 변경 이벤트
     public event Action OnPlayerDead;     // 플레이어 사망 이벤트
     private WeaponManager weaponManager;
+    
 
     void Start()
     {
@@ -97,6 +98,11 @@ public class Player : MonoBehaviour
             exp -= GetExpThresholdForLevel(level);
             LevelUp();
         }
+    }
+    
+    public void SpeedBoost(float boostAmount)
+    {
+        moveSpeed += boostAmount;
     }
     
     private void LevelUp()

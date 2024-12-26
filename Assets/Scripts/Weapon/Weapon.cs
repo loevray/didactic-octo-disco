@@ -14,13 +14,43 @@ public class Weapon : MonoBehaviour
 {
     [SerializeField] public int weaponDamage = 1;
     [SerializeField] public float weaponSpeed = 5f;
-    [SerializeField] public float weaponCoolTime = 1f;
+    [SerializeField] public float _weaponCoolTime = 1f;
+    public virtual float weaponCoolTime
+    {
+        get => _weaponCoolTime;
+        set => _weaponCoolTime = value;
+    }
     [SerializeField] public float weaponRange = 3f;
 
-    public int damageCoefficient = 0;
-    public float speedCoefficient = 0f;
-    public float coolTimeCoefficient = 0f;
-    public float rangeCoefficient = 0f;
+    public int _damageCoefficient = 1;
+    
+    public virtual int damageCoefficient
+    {
+        get => _damageCoefficient;
+        set => _damageCoefficient = value;
+    }
+    
+    public float _speedCoefficient = 0f;
+    
+    public virtual float speedCoefficient
+    {
+        get => _speedCoefficient;
+        set => _speedCoefficient = value;
+    }
+    public float _coolTimeCoefficient = 0.025f;
+    
+    public virtual float coolTimeCoefficient
+    {
+        get => _coolTimeCoefficient;
+        set => _coolTimeCoefficient = value;
+    }
+    public float _rangeCoefficient = 0f;
+    
+    public virtual float rangeCoefficient
+    {
+        get => _rangeCoefficient;
+        set => _rangeCoefficient = value;
+    }
     protected Vector3 weaponPosition;
 
     protected DateTime weaponLastShotTime;
@@ -53,7 +83,7 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    public void Upgrade(WeaponAbilityType weaponAbilityType) 
+    public virtual void Upgrade(WeaponAbilityType weaponAbilityType) 
     {
         switch (weaponAbilityType) 
         {

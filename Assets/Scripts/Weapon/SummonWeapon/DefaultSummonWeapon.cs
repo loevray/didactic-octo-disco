@@ -13,16 +13,26 @@ public class DefaultSummonWeapon : Weapon
     {
         AudioManager.instance.PlaySfx(AudioManager.Sfx.SummonPet);
     }
+
+    public override float weaponCoolTime
+    {
+        get => 100000000f;
+        set => base.weaponCoolTime = value;
+    }
+
     protected override void Start()
     {
         base.Start();
-        weaponCoolTime = 2f;
         FindPlayerPosition();
     }
 
     void Update()
     {
         FollowPlayer();
+        
+        GameManager gameManager = GameManager.Instance;
+        if(gameManager.isPaused) return;
+        
         GenerateSummonsWeapon();
     }
 
@@ -60,14 +70,23 @@ public class DefaultSummonWeapon : Weapon
         Vector3 ModifiySummonPosition = new Vector3(position.x + 2, position.y, position.z - 4);
         base.Generate(ModifiySummonPosition);
     }
+    
+     public override void Upgrade(WeaponAbilityType weaponAbilityType)
+    {
+        SummonsWeapon summonsWeaponScript = SummonsWeapon.GetComponent<SummonsWeapon>();
+        
+        if (summonsWeaponScript != null)
+        {
+            summonsWeaponScript.Upgrade(weaponAbilityType);
+        }
+    }
 
     void GenerateSummonsWeapon()
     {
         Vector3 shootPositionModifiy = new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z);
         if ((DateTime.Now - weaponLastShotTime).TotalSeconds >= projectileCoolTime)
         {
-            GameObject instance = Instantiate(SummonsWeapon, shootPositionModifiy, Quaternion.identity);
-            SummonsWeapon summonsWeaponScript = instance.GetComponent<SummonsWeapon>();
+            Instantiate(SummonsWeapon, shootPositionModifiy, Quaternion.identity);
             weaponLastShotTime = DateTime.Now;
         }
     }

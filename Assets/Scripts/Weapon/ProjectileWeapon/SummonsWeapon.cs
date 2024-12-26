@@ -2,7 +2,10 @@ using UnityEngine;
 
 public class SummonsWeapon : DefaultProjectileWeapon
 {
-    private DefaultSummonWeapon summonWeapon;
+    public override int damageCoefficient { 
+        get => 2; 
+        set => base.damageCoefficient = value; 
+    }
     private void Awake()
     {
         AudioManager.instance.PlaySfx(AudioManager.Sfx.ShootSummonsWeapon);
