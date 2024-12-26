@@ -9,13 +9,6 @@ public enum WeaponType{
   Pet,
 }
 
-public enum WeaponAbilityType{
-  Damage,
-  CoolTime,
-  Speed,
-  Range
-}
-
 public class WeaponManager : Singleton<WeaponManager>
 {
     [SerializeField] private GameObject[] weaponsList = new GameObject[3];
@@ -39,6 +32,12 @@ public class WeaponManager : Singleton<WeaponManager>
     
     public void UpgradeWeapon(WeaponType weaponType, WeaponAbilityType abilityType)
     {
+        if(ownWeapons[(int)weaponType] == null)
+        {
+            Debug.Log("업그레이드 하려는 능력치:" + abilityType + "의 해당 무기:" + weaponType + "가 없습니다.");
+            return;
+        }
+        
         GameObject weapon = ownWeapons[(int)weaponType];
         Weapon weaponScript = weapon.GetComponent<Weapon>();
         weaponScript.Upgrade(abilityType);
