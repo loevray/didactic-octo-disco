@@ -36,21 +36,6 @@ public class CardManager : Singleton<CardManager>
                 Debug.Log("Added Speed Boost Card");
             }
         }
-        
-        /* 
-        
-             float rand = UnityEngine.Random.Range(0f, 1f);
-            if(isNewWeapon && rand < newWeaponChance){
-                //일단 하드코딩으로 강한 무기 추가
-                pool.Add(new Card(CardType.NewWeapon, WeaponType.Strong)); 
-                isNewWeapon = false;
-            }   else if(!isNewWeapon && rand < newWeaponChance + upgradeCardChance){
-                WeaponAbilityType upgradableWeaponAbility = (WeaponAbilityType)UnityEngine.Random.Range(0, 4);  
-                pool.Add(new Card(CardType.WeaponUpgrade, weaponAbilityType: upgradableWeaponAbility));
-            }   else if (rand < newWeaponChance + upgradeCardChance + speedBoostChance) {
-                pool.Add(new Card(CardType.SpeedBoost)); 
-            }
-         */
 
         Debug.Log("Card Pool Generated with " + cardPool.Count + " cards.");
     }
