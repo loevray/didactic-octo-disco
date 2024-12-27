@@ -16,10 +16,6 @@ public class GameManager : Singleton<GameManager>
 
     public event System.Action OnNextStage;
 
-    protected override void Awake()
-    {
-        AudioManager.instance.PlayBgm(true);
-    }
     
     public void PauseGame(bool isPaused = true)
     {
@@ -43,8 +39,10 @@ public class GameManager : Singleton<GameManager>
     
      void Start()
     {
-       Player player = Player.Instance;
-       player.OnLevelUp += (int currentLevel) => {       
+        AudioManager.instance.PlayBgm(true);
+
+        Player player = Player.Instance;
+       player.OnLevelUp += (int currentLevel) => {
             PauseGame();
             CardManager.Instance.GenerateCardPool();
             UIManager.Instance.InjectCardInfo();

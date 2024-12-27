@@ -30,7 +30,7 @@ public class Weapon : MonoBehaviour
         set => _damageCoefficient = value;
     }
     
-    public float _speedCoefficient = 0f;
+    public float _speedCoefficient = 1f;
     
     public virtual float speedCoefficient
     {
@@ -44,7 +44,7 @@ public class Weapon : MonoBehaviour
         get => _coolTimeCoefficient;
         set => _coolTimeCoefficient = value;
     }
-    public float _rangeCoefficient = 0f;
+    public float _rangeCoefficient = 1f;
     
     public virtual float rangeCoefficient
     {
@@ -100,5 +100,6 @@ public class Weapon : MonoBehaviour
                 weaponRange += rangeCoefficient;
                 break;
         }
+
     }
 }

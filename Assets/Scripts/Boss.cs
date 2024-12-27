@@ -44,7 +44,7 @@ public class Boss : MonoBehaviour
         {
             Weapon weapon = other.gameObject.GetComponent<Weapon>();
             bossEnemyHealthPoint -= weapon.weaponDamage;
-            if (bossEnemyHealthPoint < 0)
+            if (bossEnemyHealthPoint <= 0)
             {
                 Instantiate(exp, transform.position, Quaternion.identity); 
                 Destroy(gameObject);
