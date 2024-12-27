@@ -6,12 +6,13 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private GameObject[] bossEnemies;
     [SerializeField] private float[] enemySpawnLocationX = { -8, -4, 0, 4, 8 };
     [SerializeField] private float[] enemySpawnLocationZ = { 25, 30, 35, 40, 45, 50, 55 };
+    [SerializeField] private float enemyIncreaseThreshold = 8;
 
     public MapSpawner mapSpawner;
     private readonly int enemiesPerStage = 3;
     private readonly int bossEnemiesPerStage = 1;
     private int enemyHealthIncrement = 5; //스폰마다 증가할 적의 체력
-    //mapSpawner에 있는 delete count가 일정 수치에 도달하면 적의 생산수를 늘린다.(블럭 10개가 사라지면 적+1)
+    private float additionalEnemies = 0; // 추가로 생성할 적의 수
 
     void OnEnable()
     {
@@ -20,6 +21,7 @@ public class EnemySpawner : MonoBehaviour
             mapSpawner.OnMapSpawned += HandleMapSpawned;
             mapSpawner.OnBossMapSpawned += HandleBossMapSpawned;
         }
+        MapTile.OnMapDeleted += HandleMapDeleted;
     }
     void OnDisable()
     {
@@ -28,24 +30,27 @@ public class EnemySpawner : MonoBehaviour
             mapSpawner.OnMapSpawned -= HandleMapSpawned;
             mapSpawner.OnBossMapSpawned -= HandleBossMapSpawned;
         }
+        MapTile.OnMapDeleted -= HandleMapDeleted;
     }
+    
+
     void HandleMapSpawned()
     {
-        //시리얼라이즈 변수를 만들어서 딜리트맵 카운트가 1, 2가 될때마다 적의 수 증가
-        
         GameManager gameManager = GameManager.Instance;
-        int minIndex = (gameManager.CurrentStage-1) * enemiesPerStage;
+        int minIndex = (gameManager.CurrentStage - 1) * enemiesPerStage;
         int maxIndex = (gameManager.CurrentStage) * enemiesPerStage;
 
+        for (int i = 0; i < 1 + additionalEnemies; i++) 
+        {
+            int enemyIndex = Random.Range(minIndex, maxIndex);
+            int xIndex = Random.Range(0, enemySpawnLocationX.Length);
+            int zIndex = Random.Range(0, enemySpawnLocationZ.Length);
 
-        int enemyIndex = Random.Range(minIndex, maxIndex);
-        int xIndex = Random.Range(0, enemySpawnLocationX.Length);
-        int zIndex = Random.Range(0, enemySpawnLocationZ.Length);
+            float posX = enemySpawnLocationX[xIndex];
+            float posZ = enemySpawnLocationZ[zIndex];
 
-        float posX = enemySpawnLocationX[xIndex];
-        float posZ = enemySpawnLocationZ[zIndex];
-
-        SpawnEnemy(posX, posZ, enemyIndex);
+            SpawnEnemy(posX, posZ, enemyIndex);
+        }
     }
 
     void HandleBossMapSpawned()
@@ -57,6 +62,13 @@ public class EnemySpawner : MonoBehaviour
         int bossIndex = Random.Range(minIndex, maxIndex);
         SpawnBossEnemy(bossIndex);
     }
+
+    void HandleMapDeleted()
+    {
+        float mapDeleteCount = mapSpawner.mapDeleteCount;
+        additionalEnemies = mapDeleteCount / enemyIncreaseThreshold;
+    }
+
 
     public void SpawnEnemy(float posX, float posZ, int index)
     {
