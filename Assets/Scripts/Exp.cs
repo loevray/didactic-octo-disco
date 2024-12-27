@@ -4,9 +4,19 @@ public class Exp : MonoBehaviour
 {
     [SerializeField] private int expAmount = 1;
     [SerializeField] private float expMoveSpeed = 15f;
+    [SerializeField] static int expIncrement = 5;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private void OnEnable()
+    {
+        MapTile.OnMapDeleted += IncreaseExpAmount;
+    }
+
+    private void OnDisable()
+    {
+        MapTile.OnMapDeleted -= IncreaseExpAmount;
+    }
 
     private void Update()
     {
@@ -27,6 +37,10 @@ public class Exp : MonoBehaviour
             AudioManager.instance.PlaySfx(AudioManager.Sfx.GetExpOrb);
             Destroy(gameObject);
         }
+    }
+    private void IncreaseExpAmount()
+    {
+        expAmount += expIncrement;
     }
 
 }
