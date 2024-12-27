@@ -10,6 +10,7 @@ public class EnemySpawner : MonoBehaviour
     public MapSpawner mapSpawner;
     private readonly int enemiesPerStage = 3;
     private readonly int bossEnemiesPerStage = 1;
+    private int enemyHealthIncrement = 5; //스폰마다 증가할 적의 체력
     //mapSpawner에 있는 delete count가 일정 수치에 도달하면 적의 생산수를 늘린다.(블럭 10개가 사라지면 적+1)
 
     void OnEnable()
@@ -59,9 +60,18 @@ public class EnemySpawner : MonoBehaviour
 
     public void SpawnEnemy(float posX, float posZ, int index)
     {
+        
         GameObject enemyPrefab = enemies[index];
         Vector3 spawnPos = new Vector3(posX, enemyPrefab.transform.position.y, posZ);
-        Instantiate(enemies[index], spawnPos, Quaternion.identity);
+        GameObject enemyInstance = Instantiate(enemies[index], spawnPos, Quaternion.identity);
+        IncreaseEnemyHealth(enemyInstance);
+    }
+
+    private void IncreaseEnemyHealth(GameObject enemyInstance)
+    {
+        Enemy enemyScript = enemyInstance.GetComponent<Enemy>();
+        enemyScript.enemyHealthPoint += enemyHealthIncrement;
+        enemyHealthIncrement += 5;
     }
 
     public void SpawnBossEnemy(int index)

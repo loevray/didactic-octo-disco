@@ -4,7 +4,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private float enemyMoveSpeed = 15f;
-    [SerializeField] private int enemyHealthPoint = 1;
+    public int enemyHealthPoint = 1;
     [SerializeField] private float enemyDeleteThreshold = -30f;
     [SerializeField] private AudioClip enemyDeathSound;
     private AudioSource audioSource;
@@ -47,7 +47,6 @@ public class Enemy : MonoBehaviour
             Player player = other.gameObject.GetComponent<Player>();
             Debug.Log(enemyHealthPoint);
             player.TakeDamage(enemyHealthPoint);
-
             Destroy(gameObject);
         }
     }
