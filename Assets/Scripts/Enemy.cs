@@ -55,7 +55,7 @@ public class Enemy : MonoBehaviour
     {
         if (other.gameObject.tag == "Weapon")
         {
-            Vector3 expPositionModifiy = new Vector3(transform.position.x, transform.position.y + 0.7f, transform.position.z);
+            Vector3 expPositionModifiy = new Vector3(transform.position.x, 1.8f, transform.position.z);
             Weapon weapon = other.gameObject.GetComponent<Weapon>();
             enemyHealthPoint -= weapon.weaponDamage;
             if (enemyHealthPoint <= 0)
