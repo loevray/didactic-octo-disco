@@ -199,13 +199,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponDamage: 1
   weaponSpeed: 5
-  weaponCoolTime: 10000
+  _weaponCoolTime: 1
   weaponRange: 3
-  damageCoefficient: 0
-  speedCoefficient: 0
-  coolTimeCoefficient: 0
-  rangeCoefficient: 0
-  followSpeed: 1
+  _damageCoefficient: 1
+  _speedCoefficient: 0
+  _coolTimeCoefficient: 0.025
+  _rangeCoefficient: 0
+  followSpeed: 3
   followDistance: 2
   projectileCoolTime: 1
   SummonsWeapon: {fileID: 4822789101252517901, guid: 4b930d685833b55458cec10c2d27f07a, type: 3}

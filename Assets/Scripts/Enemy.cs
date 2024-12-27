@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private float enemyMoveSpeed = 15f;
-    public int enemyHealthPoint = 1;
+    [SerializeField] private float enemyMoveSpeed = 8f;
+    public int enemyHealthPoint = 20;
     [SerializeField] private float enemyDeleteThreshold = -30f;
     [SerializeField] private AudioClip enemyDeathSound;
     private AudioSource audioSource;

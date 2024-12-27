@@ -126,8 +126,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dee56a57ad39e7f43b6ca0716a05688f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BossEnemyMoveSpeed: 15
-  bossEnemyHealthPoint: 100
+  BossEnemyMoveSpeed: 8
+  bossEnemyHealthPoint: 900
   exp: {fileID: 7862596833194655944, guid: c84371a620ea6a6449ad5dbcb350dea4, type: 3}
 --- !u!1 &3853717211454415462
 GameObject:

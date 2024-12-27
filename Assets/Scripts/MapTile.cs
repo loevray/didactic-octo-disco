@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class MapTile : MonoBehaviour
 {
-    [SerializeField] protected float moveSpeed = 15f;
+    protected float moveSpeed = 8f;
     protected float deleteThresholdPosition = -40f;
     public static event Action OnMapDeleted;
 

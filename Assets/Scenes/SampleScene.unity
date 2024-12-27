@@ -172,6 +172,7 @@ MonoBehaviour:
   - 45
   - 50
   - 55
+  enemyIncreaseThreshold: 8
   mapSpawner: {fileID: 948568410}
 --- !u!4 &29065251
 Transform:
@@ -610,78 +611,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 473326283}
   m_CullTransparentMesh: 1
---- !u!1001 &689460741
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1154801876307081897, guid: f176963dcb8e8a149ae6939e4458db40, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1154801876307081897, guid: f176963dcb8e8a149ae6939e4458db40, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1154801876307081897, guid: f176963dcb8e8a149ae6939e4458db40, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1154801876307081897, guid: f176963dcb8e8a149ae6939e4458db40, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1154801876307081897, guid: f176963dcb8e8a149ae6939e4458db40, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1154801876307081897, guid: f176963dcb8e8a149ae6939e4458db40, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1154801876307081897, guid: f176963dcb8e8a149ae6939e4458db40, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1154801876307081897, guid: f176963dcb8e8a149ae6939e4458db40, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1154801876307081897, guid: f176963dcb8e8a149ae6939e4458db40, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1154801876307081897, guid: f176963dcb8e8a149ae6939e4458db40, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6392138101079892019, guid: f176963dcb8e8a149ae6939e4458db40, type: 3}
-      propertyPath: m_Radius
-      value: 0.49393487
-      objectReference: {fileID: 0}
-    - target: {fileID: 6392138101079892019, guid: f176963dcb8e8a149ae6939e4458db40, type: 3}
-      propertyPath: m_Center.z
-      value: 0.0060651302
-      objectReference: {fileID: 0}
-    - target: {fileID: 6392138101079892019, guid: f176963dcb8e8a149ae6939e4458db40, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8310827175246301871, guid: f176963dcb8e8a149ae6939e4458db40, type: 3}
-      propertyPath: m_Name
-      value: Exp
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8310827175246301871, guid: f176963dcb8e8a149ae6939e4458db40, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1765214999}
-  m_SourcePrefab: {fileID: 100100000, guid: f176963dcb8e8a149ae6939e4458db40, type: 3}
 --- !u!1 &696934690
 GameObject:
   m_ObjectHideFlags: 0
@@ -1120,7 +1049,7 @@ MonoBehaviour:
   - {fileID: 3743737909779176324, guid: 0f861376dca150b4fbc5eece4245ee61, type: 3}
   - {fileID: 2850797483176360005, guid: e9ef0e23d45c9e6448aaea58f6964af3, type: 3}
   mapDeleteCount: 0
-  bossMapThreshold: 4
+  bossMapThreshold: 32
 --- !u!4 &948568411
 Transform:
   m_ObjectHideFlags: 0
@@ -1191,6 +1120,22 @@ PrefabInstance:
     - target: {fileID: 5022297343332598749, guid: ba00cb9e3e67cba4ab4a475958c810f7, type: 3}
       propertyPath: 'ownWeapons.Array.data[2]'
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6383035845491625785, guid: ba00cb9e3e67cba4ab4a475958c810f7, type: 3}
+      propertyPath: moveSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6383035845491625785, guid: ba00cb9e3e67cba4ab4a475958c810f7, type: 3}
+      propertyPath: moveStopThreshold
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6383035845491625785, guid: ba00cb9e3e67cba4ab4a475958c810f7, type: 3}
+      propertyPath: baseMaxHealthPoint
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6383035845491625785, guid: ba00cb9e3e67cba4ab4a475958c810f7, type: 3}
+      propertyPath: currentHealthPoint
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7402936901560740618, guid: ba00cb9e3e67cba4ab4a475958c810f7, type: 3}
       propertyPath: m_Name
@@ -2148,25 +2093,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1740522607}
   m_CullTransparentMesh: 1
---- !u!1 &1765214994 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8310827175246301871, guid: f176963dcb8e8a149ae6939e4458db40, type: 3}
-  m_PrefabInstance: {fileID: 689460741}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1765214999
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1765214994}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e3a4a759084f034cbffb458c0f88e12, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  expAmount: 1
-  expMoveSpeed: 15
 --- !u!1 &1870975682
 GameObject:
   m_ObjectHideFlags: 0
@@ -2495,6 +2421,5 @@ SceneRoots:
   - {fileID: 168184375}
   - {fileID: 29065251}
   - {fileID: 948568411}
-  - {fileID: 689460741}
   - {fileID: 142153849}
   - {fileID: 1102707684}

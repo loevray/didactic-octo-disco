@@ -4,10 +4,10 @@ using UnityEngine;
 public class Player : Singleton<Player>
 {
     
-    [SerializeField] private float moveSpeed = 20f;
-    [SerializeField] private float moveStopThreshold = 9f;
-    [SerializeField] private int currentHealthPoint = 10;
-    [SerializeField] private int baseMaxHealthPoint = 10;
+    [SerializeField] private float moveSpeed = 6f;
+    [SerializeField] private float moveStopThreshold = 8f;
+    [SerializeField] private int currentHealthPoint = 40;
+    [SerializeField] private int baseMaxHealthPoint = 100;
     [SerializeField] private int level = 1;
     [SerializeField] private int exp = 0;
     
@@ -88,7 +88,7 @@ public class Player : Singleton<Player>
     
     private int GetExpThresholdForLevel(int currentLevel)
     {
-        return 10 + ((currentLevel-1) * 4); //레벨당 필요경험치 수정 필요
+        return 30 + ((currentLevel-1) * 10); //레벨당 필요경험치 수정 필요
     }
     
     private void CheckLevelUp()
@@ -131,7 +131,7 @@ public class Player : Singleton<Player>
     
     private int GetMaxHpForLevel(int currentLevel)
     {
-        return baseMaxHealthPoint + ((currentLevel - 1) * 4); ////레벨당 체력 몇 증가할지 고민
+        return baseMaxHealthPoint + ((currentLevel - 1) * 10); ////레벨당 체력 몇 증가할지 고민
     }
 
     

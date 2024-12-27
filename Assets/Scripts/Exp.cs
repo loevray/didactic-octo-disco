@@ -4,7 +4,7 @@ public class Exp : MonoBehaviour
 {
     [SerializeField] private int expAmount = 1;
     [SerializeField] private float expMoveSpeed = 15f;
-    [SerializeField] static int expIncrement = 5;
+    [SerializeField] static int expIncrement = 2;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

@@ -149,11 +149,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb06640b033c70a418d3ebd1ed6fe65f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponDamage: 10
-  weaponSpeed: 4
-  weaponCoolTime: 10
-  weaponRange: 20
-  damageCoefficient: 0
-  speedCoefficient: 0
-  coolTimeCoefficient: 0
-  rangeCoefficient: 0
+  weaponDamage: 60
+  weaponSpeed: 7
+  _weaponCoolTime: 6
+  weaponRange: 14
+  _damageCoefficient: 12
+  _speedCoefficient: 2
+  _coolTimeCoefficient: 0.5
+  _rangeCoefficient: 2

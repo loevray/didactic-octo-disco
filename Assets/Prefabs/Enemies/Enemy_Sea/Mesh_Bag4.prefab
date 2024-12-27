@@ -124,8 +124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97bdba9e6f959fa4a82cc9e69b0819ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyMoveSpeed: 15
-  enemyHealthPoint: 5
+  enemyMoveSpeed: 8
+  enemyHealthPoint: 20
   enemyDeleteThreshold: -30
   enemyDeathSound: {fileID: 8300000, guid: c57e1f0d45099614da02c90fdb125fd8, type: 3}
   exp: {fileID: 8310827175246301871, guid: f176963dcb8e8a149ae6939e4458db40, type: 3}

@@ -4,7 +4,7 @@ using UnityEngine;
 public class DefaultSummonWeapon : Weapon
 {
     private Transform player;
-    [SerializeField] private float followSpeed = 1f;
+    [SerializeField] private float followSpeed = 3f;
     [SerializeField] private float followDistance = 2f;
     public float projectileCoolTime = 1f;
     public GameObject SummonsWeapon; // squidInkPrefab

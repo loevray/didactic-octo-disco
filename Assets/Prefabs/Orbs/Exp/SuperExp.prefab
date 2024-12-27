@@ -121,5 +121,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e3a4a759084f034cbffb458c0f88e12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  expAmount: 1
-  expMoveSpeed: 15
+  expAmount: 350
+  expMoveSpeed: 8
