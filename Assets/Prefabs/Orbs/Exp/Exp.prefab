@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8890102072652921869}
   - component: {fileID: 2027378758877182626}
   - component: {fileID: 6392138101079892019}
-  - component: {fileID: 3562072067591459345}
+  - component: {fileID: -9120809554304192001}
   m_Layer: 0
   m_Name: Exp
   m_TagString: Exp
@@ -109,7 +109,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1.6961236
   m_Center: {x: 0, y: 0, z: -1.1961236}
---- !u!114 &3562072067591459345
+--- !u!114 &-9120809554304192001
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,5 +121,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e3a4a759084f034cbffb458c0f88e12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  expAmount: 10
   expMoveSpeed: 8
+  expIncrement: 1

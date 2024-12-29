@@ -62,7 +62,6 @@ public class MapSpawner : MonoBehaviour
     void SpawnMap(Vector3 position)
     {
         GameManager gameManager = GameManager.Instance;
-        Debug.Log("맵 스폰 됨" + gameManager.CurrentStage);
         int minIndex = (gameManager.CurrentStage-1) * mapQuantityPerStage;
         int maxIndex = gameManager.CurrentStage * mapQuantityPerStage;
         

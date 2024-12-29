@@ -11,7 +11,7 @@ public class EnemySpawner : MonoBehaviour
     public MapSpawner mapSpawner;
     private readonly int enemiesPerStage = 3;
     private readonly int bossEnemiesPerStage = 1;
-    private int enemyHealthIncrement = 1; //스폰마다 증가할 적의 체력
+    private int enemyHealthIncrement = 2; //스폰마다 증가할 적의 체력
     private float additionalEnemies = 0; // 추가로 생성할 적의 수 변수
 
     void OnEnable()

@@ -2,12 +2,9 @@ using UnityEngine;
 
 public class Exp : MonoBehaviour
 {
-    [SerializeField] private int expAmount = 1;
-    [SerializeField] private float expMoveSpeed = 15f;
-    [SerializeField] static int expIncrement = 2;
-
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] public static int expAmount = 10;
+    [SerializeField] private float expMoveSpeed = 8f;
+    [SerializeField] private int expIncrement = 1;
     private void OnEnable()
     {
         MapTile.OnMapDeleted += IncreaseExpAmount;
@@ -38,9 +35,9 @@ public class Exp : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
     private void IncreaseExpAmount()
     {
         expAmount += expIncrement;
     }
-
 }
