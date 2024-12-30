@@ -12,7 +12,7 @@ public enum WeaponAbilityType{
 
 public class Weapon : MonoBehaviour
 {
-    [SerializeField] public int weaponDamage = 5;
+    [SerializeField] public int weaponDamage = 10;
     [SerializeField] public float weaponSpeed = 5f;
     [SerializeField] public float _weaponCoolTime = 0.4f;
     public virtual float weaponCoolTime

@@ -6,6 +6,11 @@ public class Boss : MonoBehaviour
     [SerializeField] private float BossEnemyMoveSpeed = 15f;
     [SerializeField] private int bossEnemyHealthPoint = 100;
     [SerializeField] private GameObject exp;
+    public float bossAttackCoolTime = 0.5f;
+    public DateTime bossLastShootTime;
+    [SerializeField] GameObject bossAttackPrefab;
+    [SerializeField] private float[] bossAttackSpawnLocationX = { -8, -4, 0, 4, 8 };
+    [SerializeField] private float bossAttackSpawnLocationZ = 11f;
 
     public static event Action OnBossDestroyed;
     
@@ -17,6 +22,8 @@ public class Boss : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Z)) {
             Destroy(gameObject);
         }
+
+        BossAttackGenerate();
     }
     
     void OnDestroy() {
@@ -53,4 +60,20 @@ public class Boss : MonoBehaviour
         }
     }
 
+    public virtual void BossAttackGenerate()
+    {
+        if ((DateTime.Now - bossLastShootTime).TotalSeconds >= bossAttackCoolTime)
+        {
+            
+            int xIndex = UnityEngine.Random.Range(0, bossAttackSpawnLocationX.Length);
+
+            float posX = bossAttackSpawnLocationX[xIndex];
+
+            Vector3 bossAttackSpawnPosition = new Vector3(posX, 1f, 10f);
+            Quaternion rotation = Quaternion.Euler(0, 180, 0);
+
+            Instantiate(bossAttackPrefab, bossAttackSpawnPosition, rotation);
+            bossLastShootTime = DateTime.Now;
+        }
+    }
 }

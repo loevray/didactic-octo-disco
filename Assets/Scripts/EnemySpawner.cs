@@ -6,7 +6,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private GameObject[] bossEnemies;
     [SerializeField] private float[] enemySpawnLocationX = { -8, -4, 0, 4, 8 };
     [SerializeField] private float[] enemySpawnLocationZ = { 25, 30, 35, 40, 45, 50, 55 };
-    [SerializeField] private float enemyIncreaseThreshold = 8;
+    [SerializeField] private float enemyIncreaseThreshold = 10;
 
     public MapSpawner mapSpawner;
     private readonly int enemiesPerStage = 3;

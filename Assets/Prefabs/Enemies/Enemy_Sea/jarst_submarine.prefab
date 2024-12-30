@@ -129,6 +129,15 @@ MonoBehaviour:
   BossEnemyMoveSpeed: 8
   bossEnemyHealthPoint: 900
   exp: {fileID: 7862596833194655944, guid: c84371a620ea6a6449ad5dbcb350dea4, type: 3}
+  bossAttackCoolTime: 5
+  bossAttackPrefab: {fileID: 2466797620504258569, guid: 0a50452128954bd49a82d04b21f970d1, type: 3}
+  bossAttackSpawnLocationX:
+  - -8
+  - -4
+  - 0
+  - 4
+  - 8
+  bossAttackSpawnLocationZ: 11
 --- !u!1 &3853717211454415462
 GameObject:
   m_ObjectHideFlags: 0

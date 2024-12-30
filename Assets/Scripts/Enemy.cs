@@ -3,14 +3,14 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private float enemyMoveSpeed = 8f;
+    [SerializeField] protected float enemyMoveSpeed = 8f;
     public int enemyHealthPoint = 20;
     [SerializeField] private float enemyDeleteThreshold = -30f;
     [SerializeField] private AudioClip enemyDeathSound;
     private AudioSource audioSource;
     [SerializeField] private GameObject exp;
 
- 
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -21,12 +21,12 @@ public class Enemy : MonoBehaviour
         deleteOutEnemy();
     }
 
-    void MoveEnemy()
+    protected virtual void MoveEnemy()
     {
         transform.position += Vector3.back * enemyMoveSpeed * Time.deltaTime;
     }
 
-    void deleteOutEnemy()
+    protected void deleteOutEnemy()
     {
         if (transform.position.z < enemyDeleteThreshold)
         {
@@ -40,7 +40,7 @@ public class Enemy : MonoBehaviour
         CollidePlayer(other);
     }
 
-    private void CollidePlayer(Collider other)
+    protected void CollidePlayer(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {

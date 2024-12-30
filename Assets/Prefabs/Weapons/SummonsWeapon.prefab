@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6c0e8ced1deb664dafb88ab08cf5d25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponDamage: 12
+  weaponDamage: 20
   weaponSpeed: 12
   _weaponCoolTime: 2
   weaponRange: 8
